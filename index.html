@@ -1,145 +1,1864 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>সাপ ও বন্যপ্রাণী – রেসকিউ বিডি</title>
+    <meta name="description"
+        content="সাপ ও বন্যপ্রাণী - রেসকিউ বিডি অ্যাপের ল্যান্ডিং পেজ। এআই স্ক্যানার দিয়ে সাপ চেনা, সাপে কাটার প্রাথমিক চিকিৎসা, নিকটস্থ অ্যান্টিভেনম হাসপাতাল খোঁজা এবং দেশের যেকোনো প্রান্ত থেকে দ্রুত সাপ উদ্ধারকারী ডাকার একমাত্র ও প্রথম সমন্বিত মোবাইল অ্যাপ্লিকেশন।">
+    <title>সাপ ও বন্যপ্রাণী - রেসকিউ বিডি | Snakes & Wildlife - Rescue BD</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <style>
-        :root{
-            --primary:#006400;      /* সবুজ */
-            --bg:#f9f9f9;
-            --text:#222;
-            --card-bg:#fff;
-            --accent:#e6f4ea;
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --accent: #ffc107;
+            --accent-glow: rgba(255, 193, 7, 0.4);
+            --bg-dark: #071209;
+            --bg-dark-gradient: linear-gradient(135deg, #050d06 0%, #0c1f10 50%, #060e06 100%);
+            --card-bg: rgba(20, 38, 24, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-light: #ffffff;
+            --text-muted: #a5d6a7;
+            --font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        *{box-sizing:border-box;margin:0;padding:0;}
-        body{
-            font-family: 'Noto Sans Bengali', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height:1.6;
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
         }
-        a{color:var(--primary);text-decoration:none;}
-        .container{max-width:1200px;margin:auto;padding:1rem;}
-        header{
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-dark);
+            background-image: var(--bg-dark-gradient);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Subtle Noise Texture & Glowing Background Orbs */
+        .glow-orb {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(46, 125, 50, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(40px);
+        }
+
+        #orb-1 {
+            top: 10%;
+            left: -100px;
+        }
+
+        #orb-2 {
+            top: 40%;
+            right: -150px;
+            background: radial-gradient(circle, rgba(167, 255, 235, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        #orb-3 {
+            bottom: 10%;
+            left: 20%;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        /* Container styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header / Navbar styling */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 18, 9, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 16px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(5, 13, 6, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-section img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--primary-light);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .logo-section h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-section h1 span {
+            display: block;
+            font-size: 11px;
+            color: var(--primary-light);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+            opacity: 0.85;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            opacity: 1;
+            color: var(--primary-light);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .btn-download-nav {
             background: var(--primary);
-            color:#fff;
-            padding:1.5rem 0;
-            text-align:center;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 600 !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            text-decoration: none;
+            transition: var(--transition);
         }
-        header h1{font-size:2rem;margin-bottom:.5rem;}
-        .hero{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            text-align:center;
-            padding:2rem 0;
+
+        .btn-download-nav:hover {
+            background: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+            transform: translateY(-2px);
         }
-        .hero img{
-            max-width:100%;
-            border-radius:8px;
-            box-shadow:0 4px 12px rgba(0,0,0,.1);
+
+        /* Mobile Hamburger */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1010;
         }
-        .hero .download{
-            margin-top:1.5rem;
-            display:inline-block;
-            background:var(--primary);
-            color:#fff;
-            padding:.8rem 1.5rem;
-            border-radius:6px;
-            font-weight:600;
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: var(--transition);
         }
-        .features{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-            gap:1.5rem;
-            margin:2rem 0;
+
+        /* Hero Section styling */
+        .hero {
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
         }
-        .feature-card{
-            background:var(--card-bg);
-            border-radius:8px;
-            padding:1rem;
-            box-shadow:0 2px 8px rgba(0,0,0,.07);
-            text-align:center;
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
         }
-        .feature-card img{
-            width:100%;
-            height:auto;
-            border-radius:6px;
-            margin-bottom:.8rem;
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease;
         }
-        .footer{
-            text-align:center;
-            padding:1.5rem 0;
-            font-size:.9rem;
-            color:#555;
+
+        .badge-live {
+            background: rgba(255, 193, 7, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 0 15px var(--accent-glow);
         }
-        @media (max-width:600px){
-            header h1{font-size:1.5rem;}
+
+        .badge-live span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            background: linear-gradient(120deg, #fff 40%, var(--primary-light) 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-store {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 12px 24px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .btn-store:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-store.primary {
+            background: var(--primary);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-store.primary:hover {
+            background: var(--primary-light);
+            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.45);
+        }
+
+        .btn-store svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .btn-store-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .btn-store-text span:first-child {
+            font-size: 10px;
+            opacity: 0.75;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .btn-store-text span:last-child {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Phone mockup styling */
+        .hero-mockup-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        .phone-mockup-glow {
+            position: absolute;
+            width: 320px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+            filter: blur(25px);
+        }
+
+        .phone-container {
+            width: 290px;
+            height: 590px;
+            background: #0d120e;
+            border: 11px solid #1a221b;
+            border-radius: 40px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 2px 6px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Phone details (Camera Notch, Speaker) */
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 24px;
+            background: #1a221b;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            z-index: 100;
+        }
+
+        /* Floating widgets around mockup */
+        .floating-widget {
+            position: absolute;
+            background: rgba(20, 38, 24, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            padding: 12px 18px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            animation: float 4s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .fw-1 {
+            top: 15%;
+            left: -30px;
+            animation-delay: 0s;
+        }
+
+        .fw-2 {
+            bottom: 20%;
+            right: -40px;
+            animation-delay: 1.5s;
+        }
+
+        .fw-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .fw-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fw-info span:first-child {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .fw-info span:last-child {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* Section Title Styling */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .section-header h2 span {
+            color: var(--primary-light);
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quick Stats Grid */
+        .stats-section {
+            padding: 40px 0;
+            margin-top: -30px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: rgba(20, 38, 24, 0.55);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: var(--glass-border);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(76, 175, 80, 0.25);
+            background: rgba(25, 47, 30, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(76, 175, 80, 0.12);
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            font-size: 24px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon-wrapper {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.08);
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .feature-card p {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Screenshots / App Showcase Section */
+        .showcase {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .showcase-slider-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0 40px;
+            position: relative;
+        }
+
+        .showcase-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: max-content;
+        }
+
+        .screenshot-item {
+            width: 250px;
+            height: 510px;
+            border-radius: 24px;
+            border: 6px solid #1a221b;
+            background: #000;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transform: scale(0.92);
+            opacity: 0.65;
+            transition: var(--transition);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .screenshot-item.active {
+            transform: scale(1);
+            opacity: 1;
+            border-color: var(--primary-light);
+            box-shadow: 0 20px 45px rgba(46, 125, 50, 0.25);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .slider-btn {
+            background: rgba(25, 47, 28, 0.6);
+            border: 1px solid var(--glass-border);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary-light);
+            transform: scale(1.05);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            width: 24px;
+            border-radius: 4px;
+            background: var(--primary-light);
+        }
+
+        /* FAQ Accordion Section */
+        .faq {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(76, 175, 80, 0.2);
+            background: rgba(25, 47, 30, 0.55);
+        }
+
+        .faq-question {
+            padding: 22px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .faq-question h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--primary-light);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding: 0 28px;
+        }
+
+        .faq-answer p {
+            padding-bottom: 22px;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* CTA Download Bottom Section */
+        .cta {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(20, 38, 24, 0.8) 0%, rgba(10, 24, 12, 0.9) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.12) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-content p {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .cta-content .download-buttons {
+            justify-content: center;
+        }
+
+        /* Footer styling */
+        footer {
+            background: #040905;
+            border-top: 1px solid var(--glass-border);
+            padding: 60px 0 30px;
+            font-size: 14.5px;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-light);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Keyframes Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.6);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive styling */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .download-buttons {
+                justify-content: center;
+            }
+
+            .hero-mockup-wrapper {
+                order: -1;
+            }
+
+            .floating-widget {
+                display: none !important;
+            }
+
+            .nav-menu li {
+                list-style: none !important;
+                list-style-type: none !important;
+            }
+
+            .stats-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .stat-card:nth-child(2)::after {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 14px 0;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(7, 18, 9, 0.95);
+                backdrop-filter: blur(25px);
+                flex-direction: column;
+                padding: 60px 40px;
+                align-items: flex-start;
+                gap: 32px;
+                transition: var(--transition);
+                border-top: 1px solid var(--glass-border);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .btn-download-nav {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-desc {
+                font-size: 15.5px;
+            }
+
+            .stats-wrapper {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 24px;
+            }
+
+            .stat-card::after {
+                display: none !important;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Small screens and mobile viewport adjustments */
+        @media (max-width: 480px) {
+            .phone-container {
+                width: 210px;
+                height: 430px;
+                border-width: 8px;
+                border-radius: 30px;
+            }
+
+            .phone-notch {
+                width: 90px;
+                height: 18px;
+            }
+
+            .phone-screen {
+                border-radius: 22px;
+            }
+
+            .floating-widget {
+                display: none !important;
+                /* Avoid widget overlapping and screen overflow */
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero-title {
+                font-size: 25px;
+                line-height: 1.3;
+            }
+
+            .hero-desc {
+                font-size: 14px;
+            }
+
+            .screenshot-item {
+                width: 190px;
+                height: 390px;
+                border-width: 4px;
+                border-radius: 18px;
+            }
+
+            .section-header h2 {
+                font-size: 24px;
+            }
+
+            .section-header p {
+                font-size: 14px;
+            }
+
+            .cta-box {
+                padding: 40px 16px;
+                border-radius: 24px;
+            }
+
+            .cta-content h2 {
+                font-size: 24px;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+            }
+
+            .btn-store {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 16px;
+            }
+
+            .logo-section h1 {
+                font-size: 17px;
+            }
+
+            .nav-menu {
+                top: 70px;
+                height: calc(100vh - 70px);
+                padding: 45px 20px;
+            }
+
+            .stats-wrapper {
+                padding: 16px;
+            }
+
+            .stat-number {
+                font-size: 26px;
+            }
+
+            .stat-label {
+                font-size: 12.5px;
+            }
+
+            .feature-card {
+                padding: 24px;
+                border-radius: 18px;
+            }
+
+            .feature-card h3 {
+                font-size: 17.5px;
+            }
+
+            .feature-card p {
+                font-size: 13.5px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 22px;
+            }
+
+            .phone-container {
+                width: 180px;
+                height: 370px;
+            }
+
+            .screenshot-item {
+                width: 160px;
+                height: 330px;
+            }
+        }
+
+        /* Hamburger menu state toggling CSS */
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -7px);
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>সাপ ও বন্যপ্রাণী – রেসকিউ বিডি</h1>
-    <p>বাংলাদেশে সবচেয়ে তথ্য‑সমৃদ্ধ সাপ‑বিভায়ন অ্যাপ</p>
-</header>
+    <!-- Glow Orbs in background -->
+    <div class="glow-orb" id="orb-1"></div>
+    <div class="glow-orb" id="orb-2"></div>
+    <div class="glow-orb" id="orb-3"></div>
 
-<section class="hero">
-    <!-- প্রয়োজ্য: আপনার অ্যাপের লোগো/প্রারম্ভিক স্ক্রিনশট এখানে রাখুন -->
-    <img src="image1.jpg" alt="অ্যাপের লোগো/প্রারম্ভিক স্ক্রিনশট">
-    <h2>সাপের তালিকা, রেসকিউয়ার ডায়রেক্টরি, হাসপাতাল গাইড – সব একসাথে</h2>
-    <a href="https://play.google.com/store/apps/details?id=bd.snake.app" class="download">Google Play‑এ ডাউনলোড করুন</a>
-</section>
+    <!-- Navigation Header -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo-section" id="nav-logo">
+                <img src="logo.webp" alt="Rescue BD Logo">
+                <h1>সাপ ও বন্যপ্রাণী<span>রেসকিউ বিডি</span></h1>
+            </a>
 
-<section class="container">
-    <h2>এই অ্যাপে কী‑কী উপলব্ধ?</h2>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">পরিচিতি</a></li>
+                <li><a href="#features" class="nav-link">ফিচারসমূহ</a></li>
+                <li><a href="#screenshots" class="nav-link">স্ক্রিনশট</a></li>
+                <li><a href="#faq" class="nav-link">প্রশ্নোত্তর</a></li>
+                <li><a href="#download" class="btn-download-nav">অ্যাপ ডাউনলোড</a></li>
+            </ul>
 
-    <div class="features">
-        <!-- ১. সাপের তালিকা -->
-        <div class="feature-card">
-            <img src="image2.jpg" alt="সাপের তালিকা">
-            <h3>সাপের তালিকা</h3>
-            <p>বাংলাদেশের ৯৪টি সাপের (বিষধর/নির্বিষ/সমুদ্রিক) সম্পূর্ণ বিবরণ, ছবি ও রঙ‑কোড।</p>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
+    </header>
 
-        <!-- ২. রেসকিউয়ার ডায়রেক্টরি -->
-        <div class="feature-card">
-            <img src="image3.jpg" alt="রেসকিউয়ার ডায়রেক্টরি">
-            <h3>রেসকিউয়ার ডায়রেক্টরি</h3>
-            <p>দেশের বিভিন্ন জেলায় স্বেচ্ছাসেবক রেসকিউয়ারদের নাম, ফোন ও লোকেশন।</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="badge-live">
+                    <span></span> দেশের প্রথম সমন্বিত বন্যপ্রাণী সচেতনতা প্ল্যাটফর্ম
+                </div>
+                <h1 class="hero-title">সাপের কামড় ও বন্যপ্রাণী সুরক্ষায় দেশের প্রথম সমন্বিত মোবাইল অ্যাপ</h1>
+                <p class="hero-desc">
+                    ঘরে বসে কৃত্রিম বুদ্ধিমত্তা (AI) দিয়ে সাপের প্রজাতি ও বিষাক্ততা শনাক্ত করুন, সাপে কামড়ালে দ্রুত জীবন
+                    রক্ষাকারী প্রাথমিক চিকিৎসা গাইড জানুন এবং যেকোনো জরুরি মুহূর্তে আপনার নিকটস্থ অ্যান্টিভেনম হাসপাতাল
+                    ও প্রশিক্ষিত উদ্ধারকারীর সাথে যোগাযোগ করুন।
+                </p>
+                <div class="download-buttons">
+                    <a href="#download" class="btn-store primary" id="hero-dl-play">
+                        <!-- Play store SVG -->
+                        <svg viewBox="0 0 512 512">
+                            <path
+                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7.6 0 14.5-3.8 18.7-9.5L283 256 65.7 9.5C61.5 3.8 54.6 0 47 0zm283 277.7l54.8 54.8L104.6 499l225.4-221.3zM347.8 256L472 184.2c12.1-7 12.1-24.4 0-31.4L347.8 256z" />
+                        </svg>
+                        <div class="btn-store-text">
+                            <span>Get it on</span>
+                            <span>Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#download" class="btn-store" id="hero-dl-apk">
+                        <!-- Custom Download APK icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                        </svg>
+                        <div class="btn-store-text">
+                            <span>Direct Download</span>
+                            <span>Download APK</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-mockup-wrapper">
+                <div class="phone-mockup-glow"></div>
+                <!-- Interactive floating badges -->
+                <div class="floating-widget fw-1">
+                    <div class="fw-icon">🤖</div>
+                    <div class="fw-info">
+                        <span>স্মার্ট এআই</span>
+                        <span>সাপ শনাক্তকরণ</span>
+                    </div>
+                </div>
+                <div class="floating-widget fw-2">
+                    <div class="fw-icon">📞</div>
+                    <div class="fw-info">
+                        <span>৯৯৯ জরুরি কল</span>
+                        <span>উদ্ধারকারী সেবা</span>
+                    </div>
+                </div>
+
+                <div class="phone-container">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <!-- First screen is default -->
+                        <img id="hero-mockup-img" src="img1.jpg" alt="Rescue BD App Screen">
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- ৩. স্মার্ট এআই স্ক্যানার -->
-        <div class="feature-card">
-            <img src="image3.jpg" alt="এআই স্ক্যানার">
-            <h3>স্মার্ট এআই স্ক্যানার</h3>
-            <p>ছবি স্ক্যান করে স্বয়ংক্রিয়ভাবে প্রজাতি ও বিষাক্ততার স্তর নির্ধারণ।</p>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-wrapper">
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-rescuers">১৬৫+</div>
+                    <div class="stat-label">সক্রিয় উদ্ধারকারী (Rescuer)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-hospitals">৫০০+</div>
+                    <div class="stat-label">অ্যান্টিভেনম সমৃদ্ধ হাসপাতাল</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-snakes">১০০+</div>
+                    <div class="stat-label">সাপ ও বন্যপ্রাণীর বিস্তারিত গাইড</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="stat-accuracy">৯৫%</div>
+                    <div class="stat-label">এআই শনাক্তকরণ সক্ষমতা</div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- ৪. হাসপাতাল ও অ্যান্টিভেনম -->
-        <div class="feature-card">
-            <img src="image4.jpg" alt="হাসপাতাল ডায়রেক্টরি">
-            <h3>হাসপাতাল ও অ্যান্টিভেনম</h3>
-            <p>প্রাক্তিক হাসপাতালের তালিকা, অ্যান্টিভেনমের উপলব্ধি ও ডাক‑নম্বরের অপশন।</p>
+    <!-- About Section -->
+    <section class="faq" style="padding-top: 20px;" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>আমাদের <span>উদ্দেশ্য</span> ও <span>পরিচিতি</span></h2>
+                <p>সাপ ও বন্যপ্রাণী পরিবেশের অবিচ্ছেদ্য অংশ। আমাদের অ্যাপটি মানুষের মনের ভয় দূর করে এবং সময়োপযোগী তথ্য ও
+                    সেবার মাধ্যমে পরিবেশ সংরক্ষণ নিশ্চিত করতে তৈরি করা হয়েছে।</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 40px;"
+                class="hero-grid">
+                <div>
+                    <img src="logo.webp" alt="Rescue BD Awareness Concept"
+                        style="width: 100%; max-width: 380px; border-radius: 32px; border: 1px solid var(--glass-border); box-shadow: 0 20px 40px rgba(0,0,0,0.3); margin: 0 auto; display: block;">
+                </div>
+                <div>
+                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: var(--primary-light);">
+                        সমন্বিত বন্যপ্রাণী সংরক্ষণ নেটওয়ার্ক</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15.5px; line-height: 1.7;">
+                        বাংলাদেশে প্রতি বছর অসংখ্য মানুষ সর্পদংশনে প্রাণ হারায় এবং একই সাথে মানুষের ভয়ের কারণে বিলুপ্ত
+                        হচ্ছে উপকারী সাপ ও বন্যপ্রাণী। "সাপ ও বন্যপ্রাণী - রেসকিউ বিডি" অ্যাপটি সাধারণ নাগরিক, বন বিভাগ,
+                        হাসপাতাল ও উদ্ধারকারীদের মধ্যে একটি টেকসই সমন্বয় সেতু তৈরি করে।
+                    </p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px;">
+                        <li style="display: flex; gap: 12px; align-items: center;">
+                            <span style="color: var(--accent); font-weight: bold;">✔</span> সঠিক সচেতনতার মাধ্যমে
+                            অন্ধবিশ্বাস ও কুসংস্কার দূর করা।
+                        </li>
+                        <li style="display: flex; gap: 12px; align-items: center;">
+                            <span style="color: var(--accent); font-weight: bold;">✔</span> ওঝার কাছে না গিয়ে সরাসরি
+                            বৈজ্ঞানিক পদ্ধতিতে অ্যান্টিভেনম চিকিৎসা নিশ্চিত করা।
+                        </li>
+                        <li style="display: flex; gap: 12px; align-items: center;">
+                            <span style="color: var(--accent); font-weight: bold;">✔</span> বিষাক্ত ও নির্বিষ সাপ চিনে
+                            অকারণ পরিবেশের ক্ষতি করা বন্ধ করা।
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- ৫. সচেতনতা কুইজ -->
-        <div class="feature-card">
-            <img src="image5.jpg" alt="কুইজ গেম">
-            <h3>কুইজ গেম</h3>
-            <p>সাপ ও বন্যপ্রাণী বিষয়ক জ্ঞান যাচাই ও সচেতনতা বৃদ্ধির উপকর।</p>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>অ্যাপের <span>মূল ফিচারসমূহ</span></h2>
+                <p>একটি অ্যাপের ভেতর সাপে কাটার ঝুঁকি মোকাবিলা এবং বন্যপ্রাণী সুরক্ষার যাবতীয় তথ্য ও জরুরি লাইভ টুলস
+                    পাবেন।</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- AI Scanner -->
+                <div class="feature-card" id="feat-1">
+                    <div class="feature-icon-wrapper">🤖</div>
+                    <h3>স্মার্ট এআই স্ক্যানার</h3>
+                    <p>সাপের পরিষ্কার ছবি তুলে বা গ্যালারি থেকে আপলোড করে এআই প্রযুক্তির মাধ্যমে কয়েক সেকেন্ডের মধ্যে
+                        সাপের প্রজাতি ও সেটি বিষধর নাকি নির্বিষ তা নির্ভুলভাবে জেনে নিন।</p>
+                </div>
+                <!-- Antivenom Hosp -->
+                <div class="feature-card" id="feat-2">
+                    <div class="feature-icon-wrapper">🏥</div>
+                    <h3>অ্যান্টিভেনম হাসপাতাল ডিরেক্টরি</h3>
+                    <p>আপনার নিকটস্থ কোন হাসপাতালে অ্যান্টিভেনম সংরক্ষিত আছে তা জেনে নিন। বিভাগ ও জেলাভিত্তিক সার্চ করে
+                        হাসপাতালের ঠিকানা ও জরুরি যোগাযোগের নম্বর খুঁজুন।</p>
+                </div>
+                <!-- Find Rescuers -->
+                <div class="feature-card" id="feat-3">
+                    <div class="feature-icon-wrapper">🛡️</div>
+                    <h3>উদ্ধারকারী (Rescuer) খুঁজুন</h3>
+                    <p>বাসা-বাড়ি বা লোকালয়ে সাপ ঢুকলে মারার প্রয়োজন নেই। আপনার লোকেশন অনুযায়ী ম্যাপে অথবা তালিকায়
+                        নিকটবর্তী অনুমোদিত রেসকিউয়ারদের সরাসরি কল দিন।</p>
+                </div>
+                <!-- First Aid -->
+                <div class="feature-card" id="feat-4">
+                    <div class="feature-icon-wrapper">🩹</div>
+                    <h3>সাপে কাটলে করণীয় ও বর্জনীয়</h3>
+                    <p>সাপে কাটলে ঠিক কোন পদক্ষেপগুলো জীবন বাঁচাতে পারে এবং প্রচলিত কোন ভুল কাজগুলো (যেমন বাঁধন দেওয়া,
+                        ওঝার কাছে যাওয়া) করা যাবে না, তা বিস্তারিত জানুন।</p>
+                </div>
+                <!-- Death registry -->
+                <div class="feature-card" id="feat-5">
+                    <div class="feature-icon-wrapper">📊</div>
+                    <h3>মৃত্যু নিবন্ধন ও পরিসংখ্যান</h3>
+                    <p>দেশের সর্পদংশনে সংঘটিত মৃত্যুর ঘটনা অ্যাপে নিবন্ধন করার সুযোগ। একটি ইন্টারেক্টিভ পরিসংখ্যান
+                        ম্যাপে কোন এলাকায় সাপের উপদ্রব কেমন তা সরাসরি দেখা যায়।</p>
+                </div>
+                <!-- AI Chatbot & Quiz -->
+                <div class="feature-card" id="feat-6">
+                    <div class="feature-icon-wrapper">💬</div>
+                    <h3>এআই চ্যাটবট ও কুইজ</h3>
+                    <p>অ্যাপের ভেতর ২৪/৭ সক্রিয় এআই বটের সাথে চ্যাট করে সাপ ও বন্যপ্রাণী নিয়ে আপনার কৌতূহল মেটান এবং
+                        কুইজ খেলে সাপের সচেতনতা সংক্রান্ত জ্ঞান বাড়ান।</p>
+                </div>
+                <!-- Forest Directory -->
+                <div class="feature-card" id="feat-7">
+                    <div class="feature-icon-wrapper">🌲</div>
+                    <h3>বন কর্মকর্তা ডিরেক্টরি</h3>
+                    <p>যেকোনো বড় বন্যপ্রাণী উদ্ধার বা বিপদের ক্ষেত্রে সরাসরি জেলাভিত্তিক নিয়োজিত বন কর্মকর্তা ও ফরেস্ট
+                        রেঞ্জারদের সাথে যোগাযোগের সরাসরি তালিকা।</p>
+                </div>
+                <!-- Posters & Books -->
+                <div class="feature-card" id="feat-8">
+                    <div class="feature-icon-wrapper">📚</div>
+                    <h3>বই, প্রকাশনা ও পোস্টার</h3>
+                    <p>সহজ ভাষায় তৈরি সচিত্র সচেতনতামূলক পোস্টার ও সরকারি প্রকাশনাগুলো অ্যাপ থেকেই সহজে ডাউনলোড অথবা
+                        যেকোনো সোশ্যাল মিডিয়ায় শেয়ারের সুবিধা।</p>
+                </div>
+                <!-- Wildlife act -->
+                <div class="feature-card" id="feat-9">
+                    <div class="feature-icon-wrapper">⚖️</div>
+                    <h3>বন্যপ্রাণী আইন ও থিমস</h3>
+                    <p>বন্যপ্রাণী ও সাপ নিধন দণ্ডনীয় অপরাধ সংক্রান্ত সরকারি গেজেট ও তফসিল পড়ার সুবিধা এবং চোখকে আরাম
+                        দিতে অ্যাপে ডার্ক ও লাইট থিমের সহায়ক ইন্টারফেস।</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <h2>সকলের জন্য উপযুক্ত</h2>
-    <p>ছাত্র, বড়‑বড়, পেশাদার, অথবা কোনো সাপ‑প্রতিবন্ধী – সবাই এই অ্যাপ ব্যবহার করে সঠিক তথ্য, দ্রুত রেসকিউ এবং সচেতনতা অর্জন করতে পারেন।</p>
-</section>
+    <!-- App Screenshots Showcase Section -->
+    <section class="showcase" id="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>অ্যাপের <span>আকর্ষণীয় স্ক্রিনশট</span></h2>
+                <p>আমাদের আধুনিক ও সহজ ইউজার ইন্টারফেসটি দেখুন যা ব্যবহারকারীদের জন্য খুবই সহজবোধ্য করে তৈরি করা হয়েছে।
+                </p>
+            </div>
 
-<footer class="footer">
-    <p>© ২০২৬ সাপ ও বন্যপ্রাণী – রেসকিউ বিডি | <a href="mailto:your@email.com">যোগাযোগ করুন</a></p>
-</footer>
+            <div class="showcase-slider-container">
+                <div class="showcase-track" id="showcase-track">
+                    <!-- Screenshots referenced directly from e:\snake-app-flutter\assets\screenshots -->
+                    <div class="screenshot-item"><img src="img1.jpg" alt="Screenshot 1"></div>
+                    <div class="screenshot-item"><img src="img2.jpg" alt="Screenshot 2"></div>
+                    <div class="screenshot-item"><img src="img3.jpg" alt="Screenshot 3"></div>
+                    <div class="screenshot-item"><img src="img4.jpg" alt="Screenshot 4"></div>
+                    <div class="screenshot-item"><img src="img5.jpg" alt="Screenshot 5"></div>
+                    <div class="screenshot-item"><img src="img6.jpg" alt="Screenshot 6"></div>
+                    <div class="screenshot-item"><img src="img7.jpg" alt="Screenshot 7"></div>
+                    <div class="screenshot-item"><img src="img8.jpg" alt="Screenshot 8"></div>
+                    <div class="screenshot-item"><img src="img9.jpg" alt="Screenshot 9"></div>
+                    <div class="screenshot-item"><img src="img10.jpg" alt="Screenshot 10"></div>
+                    <div class="screenshot-item"><img src="img11.jpg" alt="Screenshot 11"></div>
+                    <div class="screenshot-item"><img src="img12.jpg" alt="Screenshot 12"></div>
+                    <div class="screenshot-item"><img src="img13.jpg" alt="Screenshot 13"></div>
+                    <div class="screenshot-item"><img src="img14.jpg" alt="Screenshot 14"></div>
+                    <div class="screenshot-item"><img src="img15.jpg" alt="Screenshot 15"></div>
+                </div>
 
+                <div class="slider-controls">
+                    <div class="slider-btn" id="prev-btn">
+                        <!-- Left Arrow SVG -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </div>
+                    <div class="slider-dots" id="slider-dots">
+                        <!-- JS will inject dots dynamically -->
+                    </div>
+                    <div class="slider-btn" id="next-btn">
+                        <!-- Right Arrow SVG -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>সচরাচর <span>জিজ্ঞাসিত প্রশ্নসমূহ</span> (FAQs)</h2>
+                <p>অ্যাপ এবং এর কাজ সম্পর্কে আরও বিস্তারিত জানতে নিচের সাধারণ প্রশ্নোত্তরগুলো পড়ুন।</p>
+            </div>
+
+            <div class="faq-wrapper">
+                <div class="faq-item" id="faq-q1">
+                    <div class="faq-question">
+                        <h3>১. এআই স্ক্যানার কি শতভাগ সঠিকভাবে সাপ শনাক্ত করতে পারে?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            আমাদের কৃত্রিম বুদ্ধিমত্তা মডেলটি চমৎকার নির্ভুলতার সাথে প্রায় ৯৫% ক্ষেত্রে সাপের সঠিক
+                            প্রজাতি ও বিষাক্ততার মাত্রা শনাক্ত করতে পারে। তবে ইন্টারনেটের দুর্বলতা, ঝাপসা ছবি বা নতুন
+                            কোনো অ্যাঙ্গেল থেকে ছবির ক্ষেত্রে ব্যতিক্রম হতে পারে। তাই শতভাগ নিশ্চিত হতে সবসময় বিশেষজ্ঞ
+                            বা রেসকিউয়ারদের সাথে যাচাই করার পরামর্শ দেওয়া হচ্ছে।
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="faq-q2">
+                    <div class="faq-question">
+                        <h3>২. রেসকিউয়ার ডাকতে কি কোনো চার্জ বা টাকা দিতে হয়?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            সাধারণত আমাদের প্ল্যাটফর্মে নিবন্ধিত উদ্ধারকারী বা স্বেচ্ছাসেবকগণ নিজেদের ভালোলাগা ও পরিবেশ
+                            সংরক্ষণের তাগিদ থেকে সাপ উদ্ধার করে থাকেন। তবে তাদের যাতায়াত খরচ কিংবা ব্যবহৃত সরঞ্জামের খরচ
+                            হিসেবে আলোচনা সাপেক্ষে সামান্য ফি বা সম্মানীর প্রয়োজন হতে পারে।
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="faq-q3">
+                    <div class="faq-question">
+                        <h3>৩. ম্যাপ ও হাসপাতালের তথ্যগুলো কি অফলাইনেও পাওয়া যাবে?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            হ্যাঁ, একবার অ্যাপটি ইনস্টল করে ওপেন করার পর সাপের ডিরেক্টরি, প্রাথমিক চিকিৎসার গুরুত্বপূর্ণ
+                            গাইড এবং বেশিরভাগ অফলাইন হাসপাতাল ডেটা আপনার মোবাইলে ক্যাশ হয়ে থাকবে, যাতে যেকোনো
+                            ইন্টারনেটবিহীন জরুরি মুহূর্তেও আপনি তথ্য পেতে পারেন।
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="faq-q4">
+                    <div class="faq-question">
+                        <h3>৪. কীভাবে আমি একজন ভেরিফাইড রেসকিউয়ার হিসেবে যুক্ত হতে পারি?</h3>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            আপনি যদি সাপ ও বন্যপ্রাণী উদ্ধারে প্রশিক্ষণপ্রাপ্ত বা অভিজ্ঞ হয়ে থাকেন, তাহলে অ্যাপের ড্রয়ার
+                            মেনু থেকে "রেসকিউয়ার হোন" অপশনে গিয়ে আবেদন ফরম পূরণ করতে পারেন। আমাদের অ্যাডমিন প্যানেল
+                            আপনার অভিজ্ঞতা ও যোগ্যতা যাচাই করে ভেরিফাইড ব্যাজসহ আপনাকে রেসকিউয়ার তালিকায় যুক্ত করবে।
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="cta" id="download">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>আজই ডাউনলোড করুন রেসকিউ বিডি অ্যাপ</h2>
+                    <p>সাপ সম্পর্কে সঠিক সচেতনতা গড়ে তুলুন, কুসংস্কারের বদলে আধুনিক বৈজ্ঞানিক চিকিৎসার মাধ্যমে আপনার ও
+                        আপনার প্রিয়জনের জীবন সুরক্ষিত রাখুন।</p>
+
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank"
+                            class="btn-store primary" id="cta-dl-play">
+                            <svg viewBox="0 0 512 512">
+                                <path
+                                    d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7.6 0 14.5-3.8 18.7-9.5L283 256 65.7 9.5C61.5 3.8 54.6 0 47 0zm283 277.7l54.8 54.8L104.6 499l225.4-221.3zM347.8 256L472 184.2c12.1-7 12.1-24.4 0-31.4L347.8 256z" />
+                            </svg>
+                            <div class="btn-store-text">
+                                <span>Get it on</span>
+                                <span>Google Play Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="btn-store" id="cta-dl-apk">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                            </svg>
+                            <div class="btn-store-text">
+                                <span>Download Direct</span>
+                                <span>Android APK (v2.3.3)</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo-section" style="margin-bottom: 8px;">
+                        <img src="logo.webp" alt="Rescue BD Logo">
+                        <h1 style="font-size: 18px;">সাপ ও বন্যপ্রাণী<span>রেসকিউ বিডি</span></h1>
+                    </a>
+                    <p>আমাদের মূল লক্ষ্য হলো আধুনিক প্রযুক্তির সর্বোচ্চ ব্যবহার নিশ্চিত করে সচেতনতা বৃদ্ধি করা এবং
+                        মানুষের ও বন্যপ্রাণীর শান্তিপূর্ণ সহাবস্থান সৃষ্টি করা।</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">অ্যাপ পরিচিতি</a></li>
+                        <li><a href="#features">ফিচারসমূহ</a></li>
+                        <li><a href="#screenshots">অ্যাপ স্ক্রিনশট</a></li>
+                        <li><a href="#faq">সচরাচর জিজ্ঞাসা (FAQ)</a></li>
+                        <li><a href="https://snakeappbd.vercel.app/" target="_blank">অফিসিয়াল ওয়েবসাইট</a></li>
+                        <li><a href="https://www.facebook.com/snake.app.bd/" target="_blank">ফেসবুক পেজ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">জরুরি যোগাযোগ</h4>
+                    <ul class="footer-links" style="color: var(--text-muted);">
+                        <li>জাতীয় জরুরি সেবা: ৯৯৯</li>
+                        <li>স্বাস্থ্য বাতায়ন: ১৬২৬৩</li>
+                        <li>ইমেইল: <a href="mailto:snakeappbd@gmail.com"
+                                style="color: var(--text-muted); text-decoration: none; transition: var(--transition);">snakeappbd@gmail.com</a>
+                        </li>
+                        <li>ওয়েবসাইট: <a href="https://snakeappbd.vercel.app/" target="_blank"
+                                style="color: var(--text-muted); text-decoration: none; transition: var(--transition);">snakeappbd.vercel.app</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 সাপ ও বন্যপ্রাণী - রেসকিউ বিডি। সর্বস্বত্ব সংরক্ষিত।</p>
+                <p>Developed with 💚 for Wildlife Conservation</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Animations, Slider, notch, and FAQ Accordion -->
+    <script>
+        // Header Scroll class injection
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger Menu Mobile Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link, .btn-download-nav');
+
+        mobileToggle.addEventListener('click', function () {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // FAQ Accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+
+                // Close all other FAQs
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('open');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    item.classList.add('open');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Screenshot Slider/Carousel Functionality
+        const track = document.getElementById('showcase-track');
+        const screenshots = document.querySelectorAll('.screenshot-item');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const dotsContainer = document.getElementById('slider-dots');
+        const heroMockupImg = document.getElementById('hero-mockup-img');
+
+        let currentIndex = 0;
+        const totalSlides = screenshots.length;
+
+        // Generate slide dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            // Apply active class to the middle screenshot item
+            screenshots.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentIndex) {
+                    slide.classList.add('active');
+                    // Sync the hero mockup image with the active slide to make it look responsive and linked
+                    heroMockupImg.style.opacity = 0;
+                    setTimeout(() => {
+                        heroMockupImg.src = slide.querySelector('img').src;
+                        heroMockupImg.style.opacity = 1;
+                    }, 150);
+                }
+            });
+
+            // Dot active status update
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                }
+            });
+
+            // Calculate slide width and offsets dynamically for perfect centering
+            const slideWidth = screenshots[0].getBoundingClientRect().width;
+            const containerWidth = document.querySelector('.showcase-slider-container').getBoundingClientRect().width;
+            const gap = 24; // matches track gap
+
+            // Calculate shift to center the active slide
+            const offset = (containerWidth / 2) - (slideWidth / 2) - (currentIndex * (slideWidth + gap));
+            track.style.transform = `translateX(${offset}px)`;
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+            updateSlider();
+        }
+
+        prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+        // Auto slider transition every 5 seconds
+        let autoPlay = setInterval(() => goToSlide(currentIndex + 1), 5000);
+
+        // Stop auto play when user interacts
+        const stopAutoPlay = () => {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(() => goToSlide(currentIndex + 1), 8000); // restart with longer delay
+        };
+
+        prevBtn.addEventListener('click', stopAutoPlay);
+        nextBtn.addEventListener('click', stopAutoPlay);
+        dots.forEach(dot => dot.addEventListener('click', stopAutoPlay));
+
+        // Touch swipe support for mobile devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const sliderContainer = document.querySelector('.showcase-slider-container');
+
+        sliderContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 55;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe Left -> Next slide
+                goToSlide(currentIndex + 1);
+                stopAutoPlay();
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe Right -> Previous slide
+                goToSlide(currentIndex - 1);
+                stopAutoPlay();
+            }
+        }
+
+        // Initialize slider positioning after DOM renders fully
+        window.addEventListener('load', () => {
+            setTimeout(updateSlider, 200);
+        });
+
+        window.addEventListener('resize', updateSlider);
+
+        // Simple Intersection Observer to animate features and other cards on scroll
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Setup hidden starting states for feature cards to animate them in smoothly
+        const cards = document.querySelectorAll('.feature-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s`;
+            revealObserver.observe(card);
+        });
+    </script>
 </body>
+
 </html>

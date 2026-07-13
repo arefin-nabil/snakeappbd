@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সাপ ও বন্যপ্রাণী – রেসকিউ বিডি</title>
+    <style>
+        :root{
+            --primary:#006400;      /* সবুজ */
+            --bg:#f9f9f9;
+            --text:#222;
+            --card-bg:#fff;
+            --accent:#e6f4ea;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height:1.6;
+        }
+        a{color:var(--primary);text-decoration:none;}
+        .container{max-width:1200px;margin:auto;padding:1rem;}
+        header{
+            background: var(--primary);
+            color:#fff;
+            padding:1.5rem 0;
+            text-align:center;
+        }
+        header h1{font-size:2rem;margin-bottom:.5rem;}
+        .hero{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            text-align:center;
+            padding:2rem 0;
+        }
+        .hero img{
+            max-width:100%;
+            border-radius:8px;
+            box-shadow:0 4px 12px rgba(0,0,0,.1);
+        }
+        .hero .download{
+            margin-top:1.5rem;
+            display:inline-block;
+            background:var(--primary);
+            color:#fff;
+            padding:.8rem 1.5rem;
+            border-radius:6px;
+            font-weight:600;
+        }
+        .features{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:1.5rem;
+            margin:2rem 0;
+        }
+        .feature-card{
+            background:var(--card-bg);
+            border-radius:8px;
+            padding:1rem;
+            box-shadow:0 2px 8px rgba(0,0,0,.07);
+            text-align:center;
+        }
+        .feature-card img{
+            width:100%;
+            height:auto;
+            border-radius:6px;
+            margin-bottom:.8rem;
+        }
+        .footer{
+            text-align:center;
+            padding:1.5rem 0;
+            font-size:.9rem;
+            color:#555;
+        }
+        @media (max-width:600px){
+            header h1{font-size:1.5rem;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>সাপ ও বন্যপ্রাণী – রেসকিউ বিডি</h1>
+    <p>বাংলাদেশে সবচেয়ে তথ্য‑সমৃদ্ধ সাপ‑বিভায়ন অ্যাপ</p>
+</header>
+
+<section class="hero">
+    <!-- প্রয়োজ্য: আপনার অ্যাপের লোগো/প্রারম্ভিক স্ক্রিনশট এখানে রাখুন -->
+    <img src="image1.jpg" alt="অ্যাপের লোগো/প্রারম্ভিক স্ক্রিনশট">
+    <h2>সাপের তালিকা, রেসকিউয়ার ডায়রেক্টরি, হাসপাতাল গাইড – সব একসাথে</h2>
+    <a href="https://play.google.com/store/apps/details?id=bd.snake.app" class="download">Google Play‑এ ডাউনলোড করুন</a>
+</section>
+
+<section class="container">
+    <h2>এই অ্যাপে কী‑কী উপলব্ধ?</h2>
+
+    <div class="features">
+        <!-- ১. সাপের তালিকা -->
+        <div class="feature-card">
+            <img src="image2.jpg" alt="সাপের তালিকা">
+            <h3>সাপের তালিকা</h3>
+            <p>বাংলাদেশের ৯৪টি সাপের (বিষধর/নির্বিষ/সমুদ্রিক) সম্পূর্ণ বিবরণ, ছবি ও রঙ‑কোড।</p>
+        </div>
+
+        <!-- ২. রেসকিউয়ার ডায়রেক্টরি -->
+        <div class="feature-card">
+            <img src="image3.jpg" alt="রেসকিউয়ার ডায়রেক্টরি">
+            <h3>রেসকিউয়ার ডায়রেক্টরি</h3>
+            <p>দেশের বিভিন্ন জেলায় স্বেচ্ছাসেবক রেসকিউয়ারদের নাম, ফোন ও লোকেশন।</p>
+        </div>
+
+        <!-- ৩. স্মার্ট এআই স্ক্যানার -->
+        <div class="feature-card">
+            <img src="image3.jpg" alt="এআই স্ক্যানার">
+            <h3>স্মার্ট এআই স্ক্যানার</h3>
+            <p>ছবি স্ক্যান করে স্বয়ংক্রিয়ভাবে প্রজাতি ও বিষাক্ততার স্তর নির্ধারণ।</p>
+        </div>
+
+        <!-- ৪. হাসপাতাল ও অ্যান্টিভেনম -->
+        <div class="feature-card">
+            <img src="image4.jpg" alt="হাসপাতাল ডায়রেক্টরি">
+            <h3>হাসপাতাল ও অ্যান্টিভেনম</h3>
+            <p>প্রাক্তিক হাসপাতালের তালিকা, অ্যান্টিভেনমের উপলব্ধি ও ডাক‑নম্বরের অপশন।</p>
+        </div>
+
+        <!-- ৫. সচেতনতা কুইজ -->
+        <div class="feature-card">
+            <img src="image5.jpg" alt="কুইজ গেম">
+            <h3>কুইজ গেম</h3>
+            <p>সাপ ও বন্যপ্রাণী বিষয়ক জ্ঞান যাচাই ও সচেতনতা বৃদ্ধির উপকর।</p>
+        </div>
+    </div>
+
+    <h2>সকলের জন্য উপযুক্ত</h2>
+    <p>ছাত্র, বড়‑বড়, পেশাদার, অথবা কোনো সাপ‑প্রতিবন্ধী – সবাই এই অ্যাপ ব্যবহার করে সঠিক তথ্য, দ্রুত রেসকিউ এবং সচেতনতা অর্জন করতে পারেন।</p>
+</section>
+
+<footer class="footer">
+    <p>© ২০২৬ সাপ ও বন্যপ্রাণী – রেসকিউ বিডি | <a href="mailto:your@email.com">যোগাযোগ করুন</a></p>
+</footer>
+
+</body>
+</html>

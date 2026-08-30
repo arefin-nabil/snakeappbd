@@ -139,18 +139,19 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(7, 18, 9, 0.7);
+            background: rgba(7, 18, 9, 0.82);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
-            padding: 16px 0;
+            padding: 14px 0;
             transition: var(--transition);
         }
 
         header.scrolled {
             padding: 10px 0;
-            background: rgba(5, 13, 6, 0.9);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(5, 13, 6, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-bottom-color: rgba(76, 175, 80, 0.2);
         }
 
         .nav-wrapper {
@@ -167,8 +168,8 @@
         }
 
         .logo-section img {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
             object-fit: cover;
             border: 2px solid var(--primary-light);
@@ -176,10 +177,10 @@
         }
 
         .logo-section h1 {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 800;
             color: var(--text-light);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             line-height: 1.2;
         }
 
@@ -187,65 +188,104 @@
             display: block;
             font-size: 11px;
             color: var(--primary-light);
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-top: 2px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            margin-top: 1px;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 28px;
+            gap: 8px;
             align-items: center;
+            background: rgba(20, 38, 24, 0.4);
+            border: 1px solid var(--glass-border);
+            padding: 6px 10px;
+            border-radius: 30px;
         }
 
         .nav-menu a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             transition: var(--transition);
             opacity: 0.85;
-            position: relative;
-            padding: 4px 0;
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-light);
-            transition: var(--transition);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
         }
 
         .nav-menu a:hover {
             opacity: 1;
-            color: var(--primary-light);
+            color: #fff;
+            background: rgba(76, 175, 80, 0.15);
         }
 
-        .nav-menu a:hover::after {
-            width: 100%;
+        .nav-menu a.active {
+            opacity: 1;
+            color: #fff;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.8), rgba(76, 175, 80, 0.9));
+            box-shadow: 0 2px 10px rgba(76, 175, 80, 0.35);
         }
 
-        .btn-download-nav {
-            background: var(--primary);
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 600 !important;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        .nav-menu a.highlight-link {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .nav-menu a.highlight-link:hover {
+            background: rgba(255, 193, 7, 0.15);
+            color: #fff;
+        }
+
+        /* Official Google Play Badge Button */
+        .btn-play-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: #fff !important;
+            padding: 7px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
             text-decoration: none;
             transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .btn-download-nav:hover {
-            background: var(--primary-light);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        .btn-play-badge:hover {
             transform: translateY(-2px);
+            border-color: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.35);
+            background: #0d1a10;
+        }
+
+        .btn-play-badge svg {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .btn-play-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.15;
+        }
+
+        .btn-play-text small {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #bbb;
+        }
+
+        .btn-play-text span {
+            font-size: 14.5px;
+            font-weight: 800;
+            color: #fff;
         }
 
         /* Mobile Hamburger */
@@ -1281,18 +1321,33 @@
     <!-- Navigation Header -->
     <header id="header">
         <div class="container nav-wrapper">
-            <a href="#" class="logo-section" id="nav-logo">
+            <a href="#home" class="logo-section" id="nav-logo">
                 <img src="logo.webp" alt="Rescue BD Logo">
                 <h1>সাপ ও বন্যপ্রাণী<span>রেসকিউ বিডি</span></h1>
             </a>
 
             <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">হোম</a></li>
                 <li><a href="#about" class="nav-link">পরিচিতি</a></li>
                 <li><a href="#features" class="nav-link">ফিচারসমূহ</a></li>
+                <li><a href="features.html" class="nav-link highlight-link">সকল ৫৩টি ফিচার ↗</a></li>
                 <li><a href="#screenshots" class="nav-link">স্ক্রিনশট</a></li>
+                <li><a href="screenshots.html" class="nav-link highlight-link">গ্যালারি ↗</a></li>
                 <li><a href="#faq" class="nav-link">প্রশ্নোত্তর</a></li>
-                <li><a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-download-nav">গুগল প্লেস্টোর ➔</a></li>
             </ul>
+
+            <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge" id="nav-play-btn">
+                <svg viewBox="0 0 512 512">
+                    <path fill="#00e5ff" d="M30.4 18.2C24.8 24.3 21.3 33.7 21.3 46v420c0 12.3 3.5 21.7 9.1 27.8l1.6 1.4 235.2-235.2v-5.6L32 16.8l-1.6 1.4z"/>
+                    <path fill="#00e676" d="M346.7 348.6l-79.5-79.5v-5.6l79.5-79.5 1.8 1 94.2 53.6c26.9 15.3 26.9 40.3 0 55.6l-94.2 53.4-1.8 1z"/>
+                    <path fill="#ffd600" d="M348.5 347.6L267.2 266.3 30.4 503.1c8.9 9.5 23.5 10.6 39.8 1.4l278.3-156.9"/>
+                    <path fill="#ff3d00" d="M348.5 164.4L70.2 7.5C53.9-1.7 39.3-.6 30.4 8.9l236.8 236.8 81.3-81.3z"/>
+                </svg>
+                <div class="btn-play-text">
+                    <small>GET IT ON</small>
+                    <span>Google Play</span>
+                </div>
+            </a>
 
             <div class="mobile-toggle" id="mobile-toggle">
                 <span></span>
@@ -1316,25 +1371,26 @@
                     ও প্রশিক্ষিত উদ্ধারকারীর সাথে যোগাযোগ করুন।
                 </p>
                 <div class="download-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-store primary" id="hero-dl-play">
-                        <!-- Play store SVG -->
-                        <svg viewBox="0 0 512 512">
-                            <path
-                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7.6 0 14.5-3.8 18.7-9.5L283 256 65.7 9.5C61.5 3.8 54.6 0 47 0zm283 277.7l54.8 54.8L104.6 499l225.4-221.3zM347.8 256L472 184.2c12.1-7 12.1-24.4 0-31.4L347.8 256z" />
+                    <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge" id="hero-dl-play" style="padding: 10px 24px;">
+                        <svg viewBox="0 0 512 512" style="width: 26px; height: 26px;">
+                            <path fill="#00e5ff" d="M30.4 18.2C24.8 24.3 21.3 33.7 21.3 46v420c0 12.3 3.5 21.7 9.1 27.8l1.6 1.4 235.2-235.2v-5.6L32 16.8l-1.6 1.4z"/>
+                            <path fill="#00e676" d="M346.7 348.6l-79.5-79.5v-5.6l79.5-79.5 1.8 1 94.2 53.6c26.9 15.3 26.9 40.3 0 55.6l-94.2 53.4-1.8 1z"/>
+                            <path fill="#ffd600" d="M348.5 347.6L267.2 266.3 30.4 503.1c8.9 9.5 23.5 10.6 39.8 1.4l278.3-156.9"/>
+                            <path fill="#ff3d00" d="M348.5 164.4L70.2 7.5C53.9-1.7 39.3-.6 30.4 8.9l236.8 236.8 81.3-81.3z"/>
                         </svg>
-                        <div class="btn-store-text">
-                            <span>Get it on</span>
+                        <div class="btn-play-text">
+                            <small>GET IT ON</small>
                             <span>Google Play</span>
                         </div>
                     </a>
-                    <a href="#features" class="btn-store" id="hero-explore-btn">
+                    <a href="features.html" class="btn-store" id="hero-explore-btn">
                         <!-- Custom Features explore icon -->
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 5v14M19 12l-7 7-7-7" />
                         </svg>
                         <div class="btn-store-text">
-                            <span>সব ফিচার দেখুন</span>
-                            <span>এক্সপ্লোর করুন ↓</span>
+                            <span>সকল ৫৩টি ফিচার</span>
+                            <span>পূর্ণাঙ্গ তালিকা ➔</span>
                         </div>
                     </a>
                 </div>
@@ -1646,13 +1702,15 @@
 
                     <div class="download-buttons" style="justify-content: center;">
                         <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener"
-                            class="btn-store primary" id="cta-dl-play" style="padding: 14px 36px;">
-                            <svg viewBox="0 0 512 512">
-                                <path
-                                    d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 0 24 10 24 23v466c0 13 10 23 23 23 7.6 0 14.5-3.8 18.7-9.5L283 256 65.7 9.5C61.5 3.8 54.6 0 47 0zm283 277.7l54.8 54.8L104.6 499l225.4-221.3zM347.8 256L472 184.2c12.1-7 12.1-24.4 0-31.4L347.8 256z" />
+                            class="btn-play-badge" id="cta-dl-play" style="padding: 12px 32px;">
+                            <svg viewBox="0 0 512 512" style="width: 26px; height: 26px;">
+                                <path fill="#00e5ff" d="M30.4 18.2C24.8 24.3 21.3 33.7 21.3 46v420c0 12.3 3.5 21.7 9.1 27.8l1.6 1.4 235.2-235.2v-5.6L32 16.8l-1.6 1.4z"/>
+                                <path fill="#00e676" d="M346.7 348.6l-79.5-79.5v-5.6l79.5-79.5 1.8 1 94.2 53.6c26.9 15.3 26.9 40.3 0 55.6l-94.2 53.4-1.8 1z"/>
+                                <path fill="#ffd600" d="M348.5 347.6L267.2 266.3 30.4 503.1c8.9 9.5 23.5 10.6 39.8 1.4l278.3-156.9"/>
+                                <path fill="#ff3d00" d="M348.5 164.4L70.2 7.5C53.9-1.7 39.3-.6 30.4 8.9l236.8 236.8 81.3-81.3z"/>
                             </svg>
-                            <div class="btn-store-text">
-                                <span>Get it on</span>
+                            <div class="btn-play-text">
+                                <small>GET IT ON</small>
                                 <span>Google Play Store</span>
                             </div>
                         </a>
@@ -1667,7 +1725,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo-section" style="margin-bottom: 8px;">
+                    <a href="#home" class="logo-section" style="margin-bottom: 8px;">
                         <img src="logo.webp" alt="Rescue BD Logo">
                         <h1 style="font-size: 18px;">সাপ ও বন্যপ্রাণী<span>রেসকিউ বিডি</span></h1>
                     </a>
@@ -1679,8 +1737,9 @@
                     <h4 class="footer-title">গুরুত্বপূর্ণ লিংক</h4>
                     <ul class="footer-links">
                         <li><a href="#about">অ্যাপ পরিচিতি</a></li>
-                        <li><a href="#features">ফিচারসমূহ</a></li>
-                        <li><a href="#screenshots">অ্যাপ স্ক্রিনশট</a></li>
+                        <li><a href="#features">মূল ফিচারসমূহ</a></li>
+                        <li><a href="features.html">সকল ৫৩টি ফিচার তালিকা ↗</a></li>
+                        <li><a href="screenshots.html">সব স্ক্রিনশট গ্যালারি ↗</a></li>
                         <li><a href="#faq">সচরাচর জিজ্ঞাসা (FAQ)</a></li>
                         <li><a href="https://snakeappbd.vercel.app/" target="_blank">অফিসিয়াল ওয়েবসাইট</a></li>
                         <li><a href="https://www.facebook.com/snake.app.bd/" target="_blank">ফেসবুক পেজ</a></li>
@@ -1721,10 +1780,37 @@
             }
         });
 
+        // Desktop ScrollSpy to dynamically highlight active section in Navbar
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchorLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+        function updateScrollSpy() {
+            const scrollPos = (window.pageYOffset || document.documentElement.scrollTop) + 150;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navAnchorLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateScrollSpy);
+        window.addEventListener('load', updateScrollSpy);
+
         // Hamburger Menu Mobile Toggle
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link, .btn-download-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
 
         mobileToggle.addEventListener('click', function () {
             mobileToggle.classList.toggle('active');

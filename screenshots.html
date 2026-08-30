@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সকল স্ক্রিনশট গ্যালারি | সাপ ও বন্যপ্রাণী রেসকিউ বিডি</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="সাপ ও বন্যপ্রাণী - রেসকিউ বিডি অ্যাপের সকল স্ক্রিনশট গ্যালারি। এআই স্ক্যানার, লাইভ রেসকিউয়ার ম্যাপ, অ্যান্টিভেনম হাসপাতাল ও কমিউনিটি ফিচারের আকর্ষণীয় ইউআই দেখুন।">
+    <meta name="keywords"
+        content="সাপ রেসকিউ অ্যাপ স্ক্রিনশট, snake rescue app ui screenshots, bangladesh wildlife app screenshots">
+    <meta name="author" content="Arefin Nabil">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snakeappbd.vercel.app/screenshots.html">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --accent: #ffc107;
+            --bg-dark: #071209;
+            --bg-dark-gradient: linear-gradient(135deg, #050d06 0%, #0c1f10 50%, #060e06 100%);
+            --card-bg: rgba(20, 38, 24, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-light: #ffffff;
+            --text-muted: #a5d6a7;
+            --font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-dark);
+            background-image: var(--bg-dark-gradient);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modern Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 18, 9, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 14px 0;
+            transition: var(--transition);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-section img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--primary-light);
+        }
+
+        .logo-section h1 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-light);
+            line-height: 1.2;
+        }
+
+        .logo-section h1 span {
+            display: block;
+            font-size: 11px;
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            opacity: 0.85;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            opacity: 1;
+            color: var(--primary-light);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .btn-play-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: #fff !important;
+            padding: 8px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-play-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-play-badge svg {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .btn-play-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.1;
+        }
+
+        .btn-play-text small {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ccc;
+        }
+
+        .btn-play-text span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* Hero */
+        .subpage-hero {
+            padding: 140px 0 40px;
+            text-align: center;
+        }
+
+        .subpage-hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            margin-bottom: 14px;
+            background: linear-gradient(120deg, #fff 40%, var(--primary-light) 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subpage-hero p {
+            font-size: 16.5px;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 28px;
+            margin: 40px 0 80px;
+        }
+
+        .screenshot-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 14px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(76, 175, 80, 0.4);
+            background: rgba(25, 47, 30, 0.85);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        }
+
+        .screenshot-img-box {
+            width: 100%;
+            height: 480px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #000;
+            border: 4px solid #141f16;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .screenshot-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .screenshot-card:hover .screenshot-img-box img {
+            transform: scale(1.04);
+        }
+
+        .screenshot-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .screenshot-card:hover .screenshot-overlay {
+            opacity: 1;
+        }
+
+        .zoom-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(46, 125, 50, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+            transform: scale(0.8);
+            transition: var(--transition);
+        }
+
+        .screenshot-card:hover .zoom-icon {
+            transform: scale(1);
+        }
+
+        .screenshot-caption {
+            padding: 4px 8px;
+        }
+
+        .screenshot-caption h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .screenshot-caption p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 440px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-img-wrapper {
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 24px;
+            border: 6px solid #1f2d22;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+            background: #000;
+        }
+
+        .lightbox-img-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox-info {
+            margin-top: 14px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .lightbox-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+        }
+
+        .lightbox-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: #e53935;
+        }
+
+        .lightbox-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 38, 24, 0.8);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-nav-btn:hover {
+            background: var(--primary);
+        }
+
+        .lightbox-prev { left: -70px; }
+        .lightbox-next { right: -70px; }
+
+        @media (max-width: 768px) {
+            .subpage-hero h1 { font-size: 28px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .screenshot-img-box { height: 320px; }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+            .nav-menu { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .screenshot-img-box { height: 440px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo-section">
+                <img src="logo.webp" alt="Rescue BD Logo">
+                <h1>সাপ ও বন্যপ্রাণী<span>রেসকিউ বিডি</span></h1>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">হোম</a></li>
+                <li><a href="features.html">সকল ফিচার (৫৩)</a></li>
+                <li><a href="screenshots.html" class="active">স্ক্রিনশট গ্যালারি</a></li>
+                <li><a href="index.html#faq">প্রশ্নোত্তর</a></li>
+            </ul>
+
+            <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge">
+                <svg viewBox="0 0 512 512">
+                    <path fill="#00e5ff" d="M30.4 18.2C24.8 24.3 21.3 33.7 21.3 46v420c0 12.3 3.5 21.7 9.1 27.8l1.6 1.4 235.2-235.2v-5.6L32 16.8l-1.6 1.4z"/>
+                    <path fill="#00e676" d="M346.7 348.6l-79.5-79.5v-5.6l79.5-79.5 1.8 1 94.2 53.6c26.9 15.3 26.9 40.3 0 55.6l-94.2 53.4-1.8 1z"/>
+                    <path fill="#ffd600" d="M348.5 347.6L267.2 266.3 30.4 503.1c8.9 9.5 23.5 10.6 39.8 1.4l278.3-156.9"/>
+                    <path fill="#ff3d00" d="M348.5 164.4L70.2 7.5C53.9-1.7 39.3-.6 30.4 8.9l236.8 236.8 81.3-81.3z"/>
+                </svg>
+                <div class="btn-play-text">
+                    <small>GET IT ON</small>
+                    <span>Google Play</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Title -->
+        <section class="subpage-hero">
+            <h1>অ্যাপের সকল স্ক্রিনশট গ্যালারি</h1>
+            <p>
+                যে কোনো স্ক্রিনশটে ক্লিক করে বড় আকারে দেখুন এবং আমাদের আধুনিক, পরিচ্ছন্ন ও ব্যবহারকারী-বান্ধব ইন্টারফেসটি ঘুরে দেখুন।
+            </p>
+        </section>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- 15 Screenshots -->
+            <div class="screenshot-card" onclick="openLightbox(0)">
+                <div class="screenshot-img-box">
+                    <img src="img1.jpg" alt="হোম ও এআই স্ক্যানার">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>১. হোম ও এআই স্ক্যানার</h3>
+                    <p>ক্যামেরা দিয়ে তাৎক্ষণিক সাপের প্রজাতি শনাক্তকরণ</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(1)">
+                <div class="screenshot-img-box">
+                    <img src="img2.jpg" alt="জরুরি লাইভ ম্যাপ">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>২. জরুরি লাইভ ম্যাপ ও রেসকিউয়ার</h3>
+                    <p>নিকটস্থ উদ্ধারকারীদের দূরত্ব ও যোগাযোগের তালিকা</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(2)">
+                <div class="screenshot-img-box">
+                    <img src="img3.jpg" alt="অ্যান্টিভেনম হাসপাতাল ডিরেক্টরি">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>৩. অ্যান্টিভেনম হাসপাতাল</h3>
+                    <p>৬৪ জেলার সরকারি হাসপাতালের স্টক ও ডাক্তার কন্টাক্ট</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(3)">
+                <div class="screenshot-img-box">
+                    <img src="img4.jpg" alt="সাপের বিস্তারিত ডাটাবেজ">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>৪. সাপের পূর্ণাঙ্গ পরিচিতি</h3>
+                    <p>বিষাক্ততা, শারীরিক বৈশিষ্ট্য ও বিস্তার বিবরণী</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(4)">
+                <div class="screenshot-img-box">
+                    <img src="img5.jpg" alt="বিষধর বনাম নির্বিষ তুলনা">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>৫. লুক-অ্যালাইক তুলনা</h3>
+                    <p>একই রকম দেখতে সাপের পাশাপাশি তুলনামূলক পার্থক্য</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(5)">
+                <div class="screenshot-img-box">
+                    <img src="img6.jpg" alt="সাপে কাটার প্রাথমিক চিকিৎসা">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>৬. সাপে কাটার ফার্স্ট এইড</h3>
+                    <p>বৈজ্ঞানিক নিয়মে জীবন রক্ষাকারী করণীয় ও বর্জনীয়</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(6)">
+                <div class="screenshot-img-box">
+                    <img src="img7.jpg" alt="কমিউনিটি ডিসকাশন হাব">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>৭. কমিউনিটি সোশ্যাল ফিড</h3>
+                    <p>ছবি পোস্ট করে বিশেষজ্ঞদের কাছ থেকে ভেরিফিকেশন</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(7)">
+                <div class="screenshot-img-box">
+                    <img src="img8.jpg" alt="সাপের বিস্তার ম্যাপ ও হটস্পট">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>৮. জেলাভিত্তিক বিস্তার ম্যাপ</h3>
+                    <p>কোন জেলায় কোন সাপের উপস্থিতি বেশি তার হিটম্যাপ</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(8)">
+                <div class="screenshot-img-box">
+                    <img src="img9.jpg" alt="ইন্টারেক্টিভ কুইজ ও লিডারবোর্ড">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>৯. কুইজ ও লিডারবোর্ড</h3>
+                    <p>সচেতনতামূলক গেম খেলে জাতীয় র‍্যাংকিংয়ে অর্জন</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(9)">
+                <div class="screenshot-img-box">
+                    <img src="img10.jpg" alt="বন্যপ্রাণী ও পাখি এনসাইক্লোপিডিয়া">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>১০. বন্যপ্রাণী ও পাখি গাইড</h3>
+                    <p>বিপন্ন বন্যপ্রাণী ও জীববৈচিত্র্য সংরক্ষণের তথ্য</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(10)">
+                <div class="screenshot-img-box">
+                    <img src="img11.jpg" alt="বন কর্মকর্তা ডিরেক্টরি">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>১১. বন কর্মকর্তা ডিরেক্টরি</h3>
+                    <p>৬৪ জেলার ফরেস্ট রেঞ্জার ও কর্মকর্তাদের ফোন নম্বর</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(11)">
+                <div class="screenshot-img-box">
+                    <img src="img12.jpg" alt="সাপের বই ও পোস্টার লাইব্রেরি">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>১২. বই ও প্রকাশনা</h3>
+                    <p>সচেতনতামূলক পোস্টার ও গবেষণা বইয়ের লাইব্রেরি</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(12)">
+                <div class="screenshot-img-box">
+                    <img src="img13.jpg" alt="জাতীয় সর্পদংশন মৃত্যু নিবন্ধন">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>১৩. মৃত্যু নিবন্ধন হাব</h3>
+                    <p>সর্পদংশন মৃত্যুর রেকর্ড ও নীতি-নির্ধারণী পরিসংখ্যান</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(13)">
+                <div class="screenshot-img-box">
+                    <img src="img14.jpg" alt="ইউজার প্রোফাইল ও সেটিংস">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>১৪. প্রোফাইল ও সেটিংস</h3>
+                    <p>ডার্ক মোড, নোটিফিকেশন ও অ্যাকাউন্ট সেটিংস</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card" onclick="openLightbox(14)">
+                <div class="screenshot-img-box">
+                    <img src="img15.jpg" alt="এআই চ্যাট অ্যাসিস্ট্যান্ট">
+                    <div class="screenshot-overlay"><div class="zoom-icon">🔍</div></div>
+                </div>
+                <div class="screenshot-caption">
+                    <h3>১৫. এআই চ্যাট অ্যাসিস্ট্যান্ট</h3>
+                    <p>সাপ নিয়ে যেকোনো প্রশ্নের তাৎক্ষণিক উত্তর</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav-btn lightbox-prev" onclick="changeSlide(-1)">&#10094;</button>
+            
+            <div class="lightbox-img-wrapper">
+                <img id="lightbox-img" src="img1.jpg" alt="Enlarged Screenshot">
+            </div>
+
+            <div class="lightbox-info">
+                <h3 id="lightbox-title">১. হোম ও এআই স্ক্যানার</h3>
+                <p id="lightbox-desc">ক্যামেরা দিয়ে তাৎক্ষণিক সাপের প্রজাতি শনাক্তকরণ</p>
+            </div>
+
+            <button class="lightbox-nav-btn lightbox-next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 সাপ ও বন্যপ্রাণী - রেসকিউ বিডি। সর্বস্বত্ব সংরক্ষিত। | Developed by Arefin Nabil</p>
+        </div>
+    </footer>
+
+    <script>
+        const screenshotsData = [
+            { src: "img1.jpg", title: "১. হোম ও এআই স্ক্যানার", desc: "ক্যামেরা দিয়ে তাৎক্ষণিক সাপের প্রজাতি শনাক্তকরণ" },
+            { src: "img2.jpg", title: "২. জরুরি লাইভ ম্যাপ ও রেসকিউয়ার", desc: "নিকটস্থ উদ্ধারকারীদের দূরত্ব ও যোগাযোগের তালিকা" },
+            { src: "img3.jpg", title: "৩. অ্যান্টিভেনম হাসপাতাল", desc: "৬৪ জেলার সরকারি হাসপাতালের স্টক ও ডাক্তার কন্টাক্ট" },
+            { src: "img4.jpg", title: "৪. সাপের পূর্ণাঙ্গ পরিচিতি", desc: "বিষাক্ততা, শারীরিক বৈশিষ্ট্য ও বিস্তার বিবরণী" },
+            { src: "img5.jpg", title: "৫. লুক-অ্যালাইক তুলনা", desc: "একই রকম দেখতে সাপের পাশাপাশি তুলনামূলক পার্থক্য" },
+            { src: "img6.jpg", title: "৬. সাপে কাটার ফার্স্ট এইড", desc: "বৈজ্ঞানিক নিয়মে জীবন রক্ষাকারী করণীয় ও বর্জনীয়" },
+            { src: "img7.jpg", title: "৭. কমিউনিটি সোশ্যাল ফিড", desc: "ছবি পোস্ট করে বিশেষজ্ঞদের কাছ থেকে ভেরিফিকেশন" },
+            { src: "img8.jpg", title: "৮. জেলাভিত্তিক বিস্তার ম্যাপ", desc: "কোন জেলায় কোন সাপের উপস্থিতি বেশি তার হিটম্যাপ" },
+            { src: "img9.jpg", title: "৯. কুইজ ও লিডারবোর্ড", desc: "সচেতনতামূলক গেম খেলে জাতীয় র‍্যাংকিংয়ে অর্জন" },
+            { src: "img10.jpg", title: "১০. বন্যপ্রাণী ও পাখি গাইড", desc: "বিপন্ন বন্যপ্রাণী ও জীববৈচিত্র্য সংরক্ষণের তথ্য" },
+            { src: "img11.jpg", title: "১১. বন কর্মকর্তা ডিরেক্টরি", desc: "৬৪ জেলার ফরেস্ট রেঞ্জার ও কর্মকর্তাদের ফোন নম্বর" },
+            { src: "img12.jpg", title: "১২. বই ও প্রকাশনা", desc: "সচেতনতামূলক পোস্টার ও গবেষণা বইয়ের লাইব্রেরি" },
+            { src: "img13.jpg", title: "১৩. মৃত্যু নিবন্ধন হাব", desc: "সর্পদংশন মৃত্যুর রেকর্ড ও নীতি-নির্ধারণী পরিসংখ্যান" },
+            { src: "img14.jpg", title: "১৪. প্রোফাইল ও সেটিংস", desc: "ডার্ক মোড, নোটিফিকেশন ও অ্যাকাউন্ট সেটিংস" },
+            { src: "img15.jpg", title: "১৫. এআই চ্যাট অ্যাসিস্ট্যান্ট", desc: "সাপ নিয়ে যেকোনো প্রশ্নের তাৎক্ষণিক উত্তর" }
+        ];
+
+        let currentIdx = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbTitle = document.getElementById('lightbox-title');
+        const lbDesc = document.getElementById('lightbox-desc');
+
+        function openLightbox(index) {
+            currentIdx = index;
+            updateLightboxContent();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeSlide(direction) {
+            currentIdx += direction;
+            if (currentIdx < 0) currentIdx = screenshotsData.length - 1;
+            if (currentIdx >= screenshotsData.length) currentIdx = 0;
+            updateLightboxContent();
+        }
+
+        function updateLightboxContent() {
+            const data = screenshotsData[currentIdx];
+            lbImg.src = data.src;
+            lbTitle.textContent = data.title;
+            lbDesc.textContent = data.desc;
+        }
+
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+    </script>
+</body>
+
+</html>

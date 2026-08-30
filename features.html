@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সকল ফিচারসমূহ (৫৩টি ফিচার) | সাপ ও বন্যপ্রাণী রেসকিউ বিডি</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="সাপ ও বন্যপ্রাণী - রেসকিউ বিডি অ্যাপের সম্পূর্ণ ৫৩টি জীবন রক্ষাকারী, এআই চালিত, ও সচেতনতামূলক ফিচারের পূর্ণাঙ্গ তালিকা ও বিবরণ।">
+    <meta name="keywords"
+        content="সাপ রেসকিউ অ্যাপ ফিচার, এআই সাপ স্ক্যানার, অ্যান্টিভেনম হাসপাতাল, সাপে কাটার চিকিৎসা, snake rescue features bangladesh">
+    <meta name="author" content="Arefin Nabil">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snakeappbd.vercel.app/features.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snakeappbd.vercel.app/features.html">
+    <meta property="og:title" content="সকল ফিচারসমূহ (৫৩টি ফিচার) | সাপ ও বন্যপ্রাণী রেসকিউ বিডি">
+    <meta property="og:description"
+        content="এআই সাপ স্ক্যানার থেকে শুরু করে ৬৪ জেলার অ্যান্টিভেনম হাসপাতাল ও রেসকিউয়ার নেটওয়ার্ক - আমাদের ৫৩টি ফিচার দেখুন।">
+    <meta property="og:image" content="https://snakeappbd.vercel.app/logo.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --accent: #ffc107;
+            --accent-glow: rgba(255, 193, 7, 0.4);
+            --bg-dark: #071209;
+            --bg-dark-gradient: linear-gradient(135deg, #050d06 0%, #0c1f10 50%, #060e06 100%);
+            --card-bg: rgba(20, 38, 24, 0.55);
+            --card-hover: rgba(25, 47, 30, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(76, 175, 80, 0.35);
+            --text-light: #ffffff;
+            --text-muted: #a5d6a7;
+            --font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-dark);
+            background-image: var(--bg-dark-gradient);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Ambient glowing background orbs */
+        .glow-orb {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(46, 125, 50, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(50px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modern Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 18, 9, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 14px 0;
+            transition: var(--transition);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-section img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--primary-light);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .logo-section h1 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-light);
+            line-height: 1.2;
+        }
+
+        .logo-section h1 span {
+            display: block;
+            font-size: 11px;
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            transition: var(--transition);
+            opacity: 0.85;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            opacity: 1;
+            color: var(--primary-light);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        /* Play store badge button */
+        .btn-play-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: #fff !important;
+            padding: 8px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-play-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-light);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-play-badge svg {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .btn-play-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.1;
+        }
+
+        .btn-play-text small {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ccc;
+        }
+
+        .btn-play-text span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* Hero banner for subpage */
+        .subpage-hero {
+            padding: 140px 0 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge-pill {
+            background: rgba(76, 175, 80, 0.15);
+            border: 1px solid var(--primary-light);
+            color: var(--primary-light);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .subpage-hero h1 {
+            font-size: 38px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            background: linear-gradient(120deg, #fff 40%, var(--primary-light) 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subpage-hero p {
+            font-size: 16.5px;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        /* Category Section */
+        .category-block {
+            margin-bottom: 50px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .category-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(76, 175, 80, 0.15);
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            border: 1px solid rgba(76, 175, 80, 0.25);
+        }
+
+        .category-header h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-light);
+        }
+
+        .category-header span {
+            font-size: 13px;
+            color: var(--primary-light);
+            background: rgba(76, 175, 80, 0.12);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .features-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 22px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .feature-item-card:hover {
+            transform: translateY(-4px);
+            background: var(--card-hover);
+            border-color: var(--border-highlight);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-top-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .feature-number {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent);
+            background: rgba(255, 193, 7, 0.12);
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .feature-tag {
+            font-size: 11.5px;
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .feature-item-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .feature-item-card p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            background: linear-gradient(135deg, rgba(20, 38, 24, 0.8) 0%, rgba(10, 24, 12, 0.9) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 50px 30px;
+            text-align: center;
+            margin: 60px 0 80px;
+        }
+
+        .bottom-cta h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .bottom-cta p {
+            font-size: 15.5px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        /* Footer */
+        footer {
+            background: #040905;
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 0 30px;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .subpage-hero h1 { font-size: 28px; }
+            .features-list-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow-orb" style="top: 10%; left: -100px;"></div>
+    <div class="glow-orb" style="top: 50%; right: -100px;"></div>
+
+    <!-- Navigation Header -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo-section">
+                <img src="logo.webp" alt="Rescue BD Logo">
+                <h1>সাপ ও বন্যপ্রাণী<span>রেসকিউ বিডি</span></h1>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">হোম</a></li>
+                <li><a href="features.html" class="active">সকল ফিচার (৫৩)</a></li>
+                <li><a href="screenshots.html">স্ক্রিনশট গ্যালারি</a></li>
+                <li><a href="index.html#faq">প্রশ্নোত্তর</a></li>
+            </ul>
+
+            <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge">
+                <!-- Official 4-color Google Play Triangle SVG -->
+                <svg viewBox="0 0 512 512">
+                    <path fill="#00e5ff" d="M30.4 18.2C24.8 24.3 21.3 33.7 21.3 46v420c0 12.3 3.5 21.7 9.1 27.8l1.6 1.4 235.2-235.2v-5.6L32 16.8l-1.6 1.4z"/>
+                    <path fill="#00e676" d="M346.7 348.6l-79.5-79.5v-5.6l79.5-79.5 1.8 1 94.2 53.6c26.9 15.3 26.9 40.3 0 55.6l-94.2 53.4-1.8 1z"/>
+                    <path fill="#ffd600" d="M348.5 347.6L267.2 266.3 30.4 503.1c8.9 9.5 23.5 10.6 39.8 1.4l278.3-156.9"/>
+                    <path fill="#ff3d00" d="M348.5 164.4L70.2 7.5C53.9-1.7 39.3-.6 30.4 8.9l236.8 236.8 81.3-81.3z"/>
+                </svg>
+                <div class="btn-play-text">
+                    <small>GET IT ON</small>
+                    <span>Google Play</span>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Title -->
+        <section class="subpage-hero">
+            <div class="badge-pill">✨ পূর্ণাঙ্গ ফিচার ক্যাটালগ</div>
+            <h1>অ্যাপের সকল ৫৩টি ফিচার ও সুবিধাসমূহ</h1>
+            <p>
+                জরুরি সাপের কামড় মোকাবিলা, এআই ক্যামেরা স্ক্যানার, ৬৪ জেলার অ্যান্টিভেনম হাসপাতাল এবং প্রশিক্ষিত উদ্ধারকারীদের সাথে সংযোগ স্থাপনে আমাদের প্ল্যাটফর্মের ৫৩টি শক্তিশালী সুবিধার বিস্তারিত সূচি।
+            </p>
+        </section>
+
+        <!-- Category 1: AI & ML -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">🤖</div>
+                <h2>১. কৃত্রিম বুদ্ধিমত্তা ও প্রযুক্তি (AI & Machine Learning)</h2>
+                <span>৪টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১</span>
+                        <span class="feature-tag">AI Scanner</span>
+                    </div>
+                    <h3>স্মার্ট এআই ক্যামেরা স্ক্যানার</h3>
+                    <p>ক্যামেরা দিয়ে সাপের ছবি তুললে বা গ্যালারি থেকে আপলোড করলে কয়েক সেকেন্ডের মধ্যে নির্ভুলভাবে সাপের প্রজাতি শনাক্ত করে।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২</span>
+                        <span class="feature-tag">Confidence Score</span>
+                    </div>
+                    <h3>কনফিডেন্স স্কোর ও ভিজ্যুয়াল বিশ্লেষণ</h3>
+                    <p>শনাক্তকৃত প্রজাতির মিলের শতকরা হার (Confidence %) ও দৃশ্যমান প্যাটার্ন বিশ্লেষণ ফলাফল প্রদান।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩</span>
+                        <span class="feature-tag">Toxicity Alert</span>
+                    </div>
+                    <h3>তাৎক্ষণিক বিষাক্ততার লেভেল ও অ্যালার্ট</h3>
+                    <p>সাপটি মারাত্মক বিষধর (Highly Venomous), মৃদু বিষধর, নাকি সম্পূর্ণ নির্বিষ তা লাল/সবুজ ব্যাজে সতর্ক করে দেয়।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪</span>
+                        <span class="feature-tag">AI Chatbot</span>
+                    </div>
+                    <h3>এআই হার্পেটোলজি চ্যাট অ্যাসিস্ট্যান্ট</h3>
+                    <p>সাপ ও বন্যপ্রাণী সম্পর্কিত যেকোনো প্রশ্ন, খাদ্য্যাভ্যাস বা আচরণ নিয়ে ২৪/৭ চ্যাট করে উত্তর জানার সুবিধা।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2: Emergency & SOS Rescuers -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">🚨</div>
+                <h2>২. জরুরি উদ্ধার ও লাইভ এসওএস নেটওয়ার্ক (Emergency & SOS Rescue)</h2>
+                <span>৬টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৫</span>
+                        <span class="feature-tag">Area SOS</span>
+                    </div>
+                    <h3>এলাকাভিত্তিক রিয়েল-টাইম রেসকিউয়ার এসওএস</h3>
+                    <p>বিপদজনক সাপের উপদ্রব ঘটলে আপনার জেলা ও উপজেলার সক্রিয় রেসকিউয়ারদের ফোনে একযোগে ইনস্ট্যান্ট এসওএস নোটিফিকেশন পাঠানো।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৬</span>
+                        <span class="feature-tag">Live GPS Map</span>
+                    </div>
+                    <h3>লাইভ জিপিএস প্রক্সিমিটি ও ডুয়াল মোড সুইচ</h3>
+                    <p>আমার আশেপাশের ৫ কিমি থেকে ১০০ কিমি ব্যাসার্ধে নিকটতম উদ্ধারকারী দেখা অথবা সমগ্র বাংলাদেশের ৬৪ জেলার তালিকা দেখা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৭</span>
+                        <span class="feature-tag">National Emergency</span>
+                    </div>
+                    <h3>জরুরি ৯৯৯ ও স্বাস্থ্য বাতায়ন ১৬২৬৩ ওয়ান-ট্যাপ ডায়াল</h3>
+                    <p>জরুরি মুহূর্তে জাতীয় জরুরি সেবা ৯৯৯ এবং স্বাস্থ্য অধিদপ্তরের ১৬২৬৩ হেল্পলাইনে সরাসরি কল দেওয়ার শর্টকাট।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৮</span>
+                        <span class="feature-tag">Rescuer Directory</span>
+                    </div>
+                    <h3>১৬৫+ প্রত্যয়িত সাপ উদ্ধারকারী ডিরেক্টরি</h3>
+                    <p>দেশের ৬৪ জেলায় সক্রিয় অভিজ্ঞ, প্রশিক্ষণপ্রাপ্ত এবং স্বেচ্ছাসেবী বন্যপ্রাণী উদ্ধারকারীদের যাচাইকৃত তালিকা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৯</span>
+                        <span class="feature-tag">Rescuer Registration</span>
+                    </div>
+                    <h3>উদ্ধারকারী রেজিস্ট্রেশন ও অ্যাডমিন ভেরিফিকেশন</h3>
+                    <p>নতুন রেসকিউয়ারদের অভিজ্ঞতা ও প্রয়োজনীয় তথ্যাদি যাচাইপূর্বক ভেরিফায়েড রেসকিউয়ার হিসেবে তালিকাভুক্ত করার প্ল্যাটফর্ম।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১০</span>
+                        <span class="feature-tag">Portfolio & Badges</span>
+                    </div>
+                    <h3>উদ্ধারকারীর প্রোফাইল ও সফল উদ্ধার পোর্টফোলিও</h3>
+                    <p>উদ্ধারকারীদের কাজের পরিসংখ্যান, অভিজ্ঞতা, উদ্ধারকৃত সাপের সংখ্যা ও প্রশংসাসূচক ব্যাজ প্রদর্শন।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3: Medical & Antivenom -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">🏥</div>
+                <h2>৩. চিকিৎসা ও অ্যান্টিভেনম হাসপাতাল ডিরেক্টরি (Medical & Antivenom)</h2>
+                <span>৬টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১১</span>
+                        <span class="feature-tag">Antivenom Finder</span>
+                    </div>
+                    <h3>৬৪ জেলার ৪৯৫+ অ্যান্টিভেনম সরকারি হাসপাতাল ফাইন্ডার</h3>
+                    <p>দেশের সকল মেডিকেল কলেজ, জেলা সদর ও উপজেলা স্বাস্থ্য কমপ্লেক্সের লাইভ অ্যান্টিভেনম ডাটাবেজ।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১২</span>
+                        <span class="feature-tag">District Filter</span>
+                    </div>
+                    <h3>জেলা ও উপজেলাভিত্তিক হাসপাতাল ফিল্টারিং</h3>
+                    <p>যেকোনো নির্দিষ্ট জেলা ও উপজেলা নির্বাচন করে নিকটবর্তী হাসপাতালের দূরত্ব ও গুগল ম্যাপ নেভিগেশন সুবিধা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১৩</span>
+                        <span class="feature-tag">Doctor Directory</span>
+                    </div>
+                    <h3>অন-কল ইমার্জেন্সি ডাক্তার ও আরএমও কন্টাক্ট</h3>
+                    <p>জরুরি বিভাগে দায়িত্বরত ডাক্তার ও নিয়ন্ত্রণ কক্ষের সরাসরি যোগাযোগের ফোন নম্বর।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১৪</span>
+                        <span class="feature-tag">First Aid Protocol</span>
+                    </div>
+                    <h3>সাপে কাটার বৈজ্ঞানিক প্রাথমিক চিকিৎসা গাইড</h3>
+                    <p>বিশ্ব স্বাস্থ্য সংস্থা (WHO) ও স্বাস্থ্য অধিদপ্তরের বৈজ্ঞানিক গাইডলাইন অনুযায়ী ধাপে ধাপে করণীয় নির্দেশিকা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১৫</span>
+                        <span class="feature-tag">Do's & Don'ts</span>
+                    </div>
+                    <h3>সর্পদংশনে করণীয় ও বর্জনীয় পোস্টার গাইড</h3>
+                    <p>ওঝার কাছে যাওয়া, রক্ত চোষা, শক্ত বাঁধন দেওয়া থেকে বিরত থাকার সতর্কতামূলক ভিজ্যুয়াল গাইড।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১৬</span>
+                        <span class="feature-tag">Death Registry</span>
+                    </div>
+                    <h3>জাতীয় সর্পদংশন মৃত্যু নিবন্ধন ও মেমোরিয়াল হাব</h3>
+                    <p>সর্পদংশনে মৃত্যুর ঘটনা নথিভুক্তকরণ ও নীতি-নির্ধারণের জন্য জাতীয় পর্যায়ে গবেষণা ডাটাবেজ তৈরি।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 4: Snake Encyclopedia -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">🐍</div>
+                <h2>৪. সাপের এনসাইক্লোপিডিয়া ও আইডেন্টিফিকেশন (Snake Database)</h2>
+                <span>৮টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১৭</span>
+                        <span class="feature-tag">Species DB</span>
+                    </div>
+                    <h3>১০০+ দেশীয় ও আঞ্চলিক সাপের সচিত্র ডাটাবেজ</h3>
+                    <p>বাংলাদেশের বিষধর, মৃদু বিষধর ও নির্বিষ সকল সাপের প্রমিত বৈজ্ঞানিক ও আঞ্চলিক তথ্যভাণ্ডার।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১৮</span>
+                        <span class="feature-tag">Multilingual Search</span>
+                    </div>
+                    <h3>বাংলা, ইংরেজি ও বৈজ্ঞানিক নামের তাৎক্ষণিক সার্চ</h3>
+                    <p>যেকোনো ভাষায় সাপের নাম লিখে এক সেকেন্ডের মধ্যে কাঙ্ক্ষিত তথ্য খুঁজে বের করার সার্চ ইঞ্জিন।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #১৯</span>
+                        <span class="feature-tag">Look-alike Comparison</span>
+                    </div>
+                    <h3>বিষধর বনাম নির্বিষ সাপের লুক-অ্যালাইক তুলনা</h3>
+                    <p>কালাচ বনাম ঘরগিন্নি, গোখরা বনাম দাঁড়াশ সাপের পাশাপাশি রেখে সূক্ষ্ম শারীরিক পার্থক্যের ভিজ্যুয়াল তুলনা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২০</span>
+                        <span class="feature-tag">Expert Guide</span>
+                    </div>
+                    <h3>স্পেশালিস্ট ফিল্ড আইডেন্টিফিকেশন গাইড বুকলেট</h3>
+                    <p>স্কেল কাউন্ট, চোখের পিউপিল, দাঁতের গঠন দেখে সাপ চেনার বিশেষজ্ঞ বুকলেট।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২১</span>
+                        <span class="feature-tag">District Heatmap</span>
+                    </div>
+                    <h3>৬৪ জেলার বিস্তার ও হটস্পট লাইভ হিটম্যাপ</h3>
+                    <p>আপনার জেলায় কোন কোন সাপ পাওয়া যায় এবং উদ্ধার পরিসংখ্যানভিত্তিক ইন্টারেক্টিভ ম্যাপ।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২২</span>
+                        <span class="feature-tag">HD Photo Viewer</span>
+                    </div>
+                    <h3>হাই-রেজোলিউশন ফটো ভিউয়ার ও জুম ফিচার</h3>
+                    <p>সাপের বিভিন্ন অংশের ছবি জুম করে পরিষ্কারভাবে প্যাটার্ন ও স্কেল দেখার সুবিধা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২৩</span>
+                        <span class="feature-tag">Ecology Details</span>
+                    </div>
+                    <h3>খাদ্যাভ্যাস, প্রজনন ও প্রাকৃতিক স্বভাব বিবরণী</h3>
+                    <p>সাপের বাস্তুসংস্থান, ডিম পাড়া বা বাচ্চা প্রসব, বিষদাঁতের ধরণ সংক্রান্ত গভীর বায়োলজিক্যাল তথ্য।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২৪</span>
+                        <span class="feature-tag">Identification Engine</span>
+                    </div>
+                    <h3>ডাইকোটোমাস আইডেন্টিফিকেশন ইঞ্জিন</h3>
+                    <p>সাপের শারীরিক বৈশিষ্ট্যগুলো একে একে সিলেক্ট করে অজানা সাপের নাম খুঁজে বের করার স্টেপ-বাই-স্টেপ টুল।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 5: Community -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">💬</div>
+                <h2>৫. কমিউনিটি সোশ্যাল ফিড ও এক্সপার্ট ভেরিফিকেশন (Community)</h2>
+                <span>৭টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২৫</span>
+                        <span class="feature-tag">Create Post</span>
+                    </div>
+                    <h3>ছবিসহ প্রশ্ন ও পোস্ট তৈরির সুবিধা</h3>
+                    <p>ঘরের পাশে দেখা পাওয়া সাপের ছবি তুলে লোকেশনসহ সরাসরি কমিউনিটিতে পোস্ট করার সুবিধা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২৬</span>
+                        <span class="feature-tag">Help Identify</span>
+                    </div>
+                    <h3>'জানতে চাই (Help Identify)' বিশেষ ক্যাটাগরি</h3>
+                    <p>সাপটির নাম না জানলে ওয়ান-ক্লিকে 'জানতে চাই' ট্যাগ দিয়ে দ্রুত বিশেষজ্ঞদের দৃষ্টি আকর্ষণ করা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২৭</span>
+                        <span class="feature-tag">Rescuer Badges</span>
+                    </div>
+                    <h3>সার্টিফাইড উদ্ধারকারী ভেরিফায়েড রিপ্লাই</h3>
+                    <p>রেসকিউয়ারদের কমেন্টে বিশেষ সবুজ টিক ও ব্যাজ যাতে ইউজাররা সঠিক তথ্য চিনতে পারেন।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২৮</span>
+                        <span class="feature-tag">Live Interactions</span>
+                    </div>
+                    <h3>লাইক, কমেন্ট ও রিয়েলটাইম ডিসকাশন</h3>
+                    <p>অন্যান্য প্রকৃতিপ্রেমী ও উদ্ধারকারীদের সাথে মন্তব্য আদান-প্রদান ও অভিজ্ঞতা শেয়ারের প্ল্যাটফর্ম।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #২৯</span>
+                        <span class="feature-tag">Location Feed</span>
+                    </div>
+                    <h3>জেলাভিত্তিক ফিল্টারিং ও পাবলিক ফিড</h3>
+                    <p>আপনার নিজ জেলায় কী কী সাপ উদ্ধার হয়েছে বা পোস্ট করা হয়েছে তা আলাদা করে দেখার সুবিধা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩০</span>
+                        <span class="feature-tag">User Profile</span>
+                    </div>
+                    <h3>ইউজার প্রোফাইল বিবরণ ও পোস্ট পরিসংখ্যান</h3>
+                    <p>নিজের পোস্ট করা পোস্টসমূহ, প্রাপ্ত লাইক সংখ্যা এবং উদ্ধার ইতিহাস এক নজরে দেখা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩১</span>
+                        <span class="feature-tag">Saved Posts</span>
+                    </div>
+                    <h3>পোস্ট বুকমার্ক ও সেভ হিস্ট্রি</h3>
+                    <p>গুরুত্বপূর্ণ পোস্টগুলো পরবর্তীতে অফলাইনে পড়ার জন্য বুকমার্ক করে রাখার সুবিধা।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 6: Wildlife & Forest -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">🌲</div>
+                <h2>৬. বন্যপ্রাণী সংরক্ষণ ও বন অধিদপ্তর হাব (Wildlife Hub)</h2>
+                <span>৬টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩২</span>
+                        <span class="feature-tag">Bird Database</span>
+                    </div>
+                    <h3>বাংলাদেশের বন্যপাখি এনসাইক্লোপিডিয়া</h3>
+                    <p>দেশের স্থানীয় ও পরিযায়ী পাখির পরিচিতি, স্বভাব ও সংরক্ষণের গুরুত্ব।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩৩</span>
+                        <span class="feature-tag">Reptiles & Turtles</span>
+                    </div>
+                    <h3>সরীসৃপ, কচ্ছপ ও উভচর প্রাণী গাইড</h3>
+                    <p>গুইসাপ, তক্ষক, ব্যাঙ এবং সামুদ্রিক ও মিঠাপানির কচ্ছপের পরিচিতি ও তথ্য।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩৪</span>
+                        <span class="feature-tag">Red List</span>
+                    </div>
+                    <h3>বিপন্ন ও সংরক্ষিত বন্যপ্রাণী তালিকা (IUCN)</h3>
+                    <p>বাংলাদেশের অতিবিপন্ন ও সংকটাপন্ন প্রাণীদের তালিকা ও সচেতনতা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩৫</span>
+                        <span class="feature-tag">Wildlife Law</span>
+                    </div>
+                    <h3>বাংলাদেশ বন্যপ্রাণী আইন নির্দেশিকা</h3>
+                    <p>বন্যপ্রাণী নিধন ও পাচার দণ্ডনীয় অপরাধ সংক্রান্ত আইন ও শাস্তির বিধান।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩৬</span>
+                        <span class="feature-tag">Forest Officers</span>
+                    </div>
+                    <h3>৬৪ জেলার বন বিভাগ কর্মকর্তা ও রেঞ্জার ডিরেক্টরি</h3>
+                    <p>বড় বন্যপ্রাণী উদ্ধার বা বিপদের ক্ষেত্রে সরাসরি জেলা বন কর্মকর্তাদের যোগাযোগের তালিকা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩৭</span>
+                        <span class="feature-tag">Poaching Prevention</span>
+                    </div>
+                    <h3>প্রাণী নিধন ও পাচার প্রতিরোধ তথ্য</h3>
+                    <p>বন্যপ্রাণী পাচারের খবর সরাসরি বন বিভাগ ও ৯৯৯-এ জানানোর প্রক্রিয়া।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 7: Gamification & Quiz -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">🧠</div>
+                <h2>৭. গেমিফিকেশন, লার্নিং ও সচেতনতা (Gamification & Quiz)</h2>
+                <span>৫টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩৮</span>
+                        <span class="feature-tag">Interactive Quiz</span>
+                    </div>
+                    <h3>ইন্টারেক্টিভ সাপ ও বন্যপ্রাণী কুইজ</h3>
+                    <p>মজার মজার কুইজ খেলে সাপ ও প্রাথমিক চিকিৎসার জ্ঞান পরীক্ষা ও বৃদ্ধি করার ব্যবস্থা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৩৯</span>
+                        <span class="feature-tag">Leaderboard</span>
+                    </div>
+                    <h3>লাইভ ন্যাশনাল লিডারবোর্ড ও পয়েন্ট স্কোরিং</h3>
+                    <p>সঠিক উত্তর দিয়ে পয়েন্ট অর্জন করে জাতীয় লিডারবোর্ডে শীর্ষে থাকার রোমাঞ্চ।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪০</span>
+                        <span class="feature-tag">E-Books Library</span>
+                    </div>
+                    <h3>সাপের বই, প্রকাশনা ও পোস্টার লাইব্রেরি</h3>
+                    <p>সরকারি ও বিশেষজ্ঞ প্রকাশনাগুলো অ্যাপ থেকেই সহজে পড়ার ডিজিটাল লাইব্রেরি।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪১</span>
+                        <span class="feature-tag">Poster Sharing</span>
+                    </div>
+                    <h3>সচেতনতামূলক পোস্টার শেয়ারিং সুবিধা</h3>
+                    <p>স্কুল-কলেজ বা এলাকায় সচেতনতা বাড়াতে এইচডি পোস্টার ডাউনলোড ও সোশ্যাল মিডিয়ায় শেয়ার।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪২</span>
+                        <span class="feature-tag">Video Guides</span>
+                    </div>
+                    <h3>প্রাথমিক সচেতনতা ভিডিও ও ডকুমেন্টারি গাইড</h3>
+                    <p>সাপ ধরা ও অবমুক্ত করার নিয়ম সংক্রান্ত বিশেষজ্ঞ ভিডিও টিউটোরিয়াল হাব।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 8: UX & Offline Architecture -->
+        <div class="category-block">
+            <div class="category-header">
+                <div class="category-icon">⚙️</div>
+                <h2>৮. ইউজার এক্সপেরিয়েন্স, অফলাইন ও টেকনিক্যাল (UX & Core Tech)</h2>
+                <span>১১টি ফিচার</span>
+            </div>
+            <div class="features-list-grid">
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪৩</span>
+                        <span class="feature-tag">100% Offline</span>
+                    </div>
+                    <h3>সম্পূর্ণ অফলাইন সাপোর্ট (Zero Data)</h3>
+                    <p>ইন্টারনেট ছাড়াই প্রত্যন্ত চরাঞ্চল বা পাহাড়ে প্রাথমিক চিকিৎসা ও সাপের ডাটাবেজ ব্যবহার।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪৪</span>
+                        <span class="feature-tag">Authentication</span>
+                    </div>
+                    <h3>গুগল সাইন-ইন ও ফোন নম্বর ব্যাকআপ অ্যাকাউন্ট</h3>
+                    <p>সহজে এক-ক্লিকে সুরক্ষিত লগইন এবং ফোন নম্বর দিয়ে অ্যাকাউন্ট রিকভারির সুযোগ।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪৫</span>
+                        <span class="feature-tag">Profile Edit</span>
+                    </div>
+                    <h3>প্রোফাইল কাস্টমাইজেশন ও অ্যাভাটার</h3>
+                    <p>নাম, জেলা, উপজেলা এবং নিজের পছন্দের অ্যাভাটার সেট করার সুবিধা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪৬</span>
+                        <span class="feature-tag">Theme Engine</span>
+                    </div>
+                    <h3>ডার্ক ও লাইট থিমের অ্যাডাপ্টিভ ইউআই</h3>
+                    <p>চোখের আরামের জন্য স্বয়ংক্রিয় ডার্ক মোড ও আধুনিক মেটেরিয়াল ডিজাইন ৩।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪৭</span>
+                        <span class="feature-tag">FCM Alerts</span>
+                    </div>
+                    <h3>হাই-প্রায়োরিটি পুশ নোটিফিকেশন সিস্টেম</h3>
+                    <p>জরুরি উদ্ধার ও প্রয়োজনীয় স্বাস্থ্য নির্দেশিকা রিয়েল-টাইমে ডিভাইসে পৌঁছে দেওয়া।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪৮</span>
+                        <span class="feature-tag">Micro-Animations</span>
+                    </div>
+                    <h3>আধুনিক ফ্লটার মাইক্রো-অ্যানিমেশনস</h3>
+                    <p>অত্যন্ত স্মুথ ট্রানজিশন, বাউন্স স্ক্রলিং ও প্রিমিয়াম হ্যাপটিক ফিডব্যাক।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৪৯</span>
+                        <span class="feature-tag">Low Bandwidth</span>
+                    </div>
+                    <h3>লো-মেমোরি ও লো-ব্যান্ডউইথ অপ্টিমাইজেশন</h3>
+                    <p>লো-এন্ড অ্যান্ড্রয়েড ফোনেও কোনো ল্যাগ ছাড়াই দ্রুতগতির মসৃণ পারফরম্যান্স।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৫০</span>
+                        <span class="feature-tag">Bilingual</span>
+                    </div>
+                    <h3>দ্বিভাষিক (বাংলা ও ইংরেজি) সাপোর্ট</h3>
+                    <p>সাধারণ নাগরিক ও গবেষকদের সুবিধার্থে পরিচ্ছন্ন বাংলা ফন্ট ও ইংরেজি পরিভাষা।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৫১</span>
+                        <span class="feature-tag">In-App Update</span>
+                    </div>
+                    <h3>ইন-অ্যাপ অটো আপডেট নোটিফিকেশন</h3>
+                    <p>নতুন ফিচার ও হাসপাতাল যুক্ত হলে স্বয়ংক্রিয়ভাবে ব্যবহারকারীকে আপডেট করার নোটিফিকেশন।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৫২</span>
+                        <span class="feature-tag">Support Hub</span>
+                    </div>
+                    <h3>ইউজার ফিডব্যাক ও সরাসরি সাপোর্ট যোগাযোগ</h3>
+                    <p>যেকোনো সমস্যা বা পরামর্শ সরাসরি ডেভেলপার ও মডারেটর টিমকে জানানোর প্ল্যাটফর্ম।</p>
+                </div>
+                <div class="feature-item-card">
+                    <div class="feature-top-meta">
+                        <span class="feature-number">ফিচার #৫৩</span>
+                        <span class="feature-tag">Privacy & Security</span>
+                    </div>
+                    <h3>আন্তর্জাতিক মানের প্রাইভেসি পলিসি ও ডেটা সুরক্ষা</h3>
+                    <p>গুগল প্লে ডেভেলপার পলিসি ও জিডিপিআর কমপ্লায়েন্ট নিরাপদ এনক্রিপ্টেড ক্লাউড স্টোরেজ।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <section class="bottom-cta">
+            <h2>আজই ইনস্টল করুন দেশের #১ বন্যপ্রাণী রেসকিউ অ্যাপ</h2>
+            <p>আপনার ও আপনার পরিবারের নিরাপত্তায় প্রতিটি জরুরি টুলস রাখুন আপনার হাতের মুঠোয়।</p>
+            <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge" style="padding: 12px 28px; font-size: 16px;">
+                <svg viewBox="0 0 512 512" style="width: 26px; height: 26px;">
+                    <path fill="#00e5ff" d="M30.4 18.2C24.8 24.3 21.3 33.7 21.3 46v420c0 12.3 3.5 21.7 9.1 27.8l1.6 1.4 235.2-235.2v-5.6L32 16.8l-1.6 1.4z"/>
+                    <path fill="#00e676" d="M346.7 348.6l-79.5-79.5v-5.6l79.5-79.5 1.8 1 94.2 53.6c26.9 15.3 26.9 40.3 0 55.6l-94.2 53.4-1.8 1z"/>
+                    <path fill="#ffd600" d="M348.5 347.6L267.2 266.3 30.4 503.1c8.9 9.5 23.5 10.6 39.8 1.4l278.3-156.9"/>
+                    <path fill="#ff3d00" d="M348.5 164.4L70.2 7.5C53.9-1.7 39.3-.6 30.4 8.9l236.8 236.8 81.3-81.3z"/>
+                </svg>
+                <div class="btn-play-text">
+                    <small>GET IT ON</small>
+                    <span>Google Play Store</span>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 সাপ ও বন্যপ্রাণী - রেসকিউ বিডি। সর্বস্বত্ব সংরক্ষিত। | Developed by Arefin Nabil</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -36,10 +36,11 @@
     {
       "@context": "https://schema.org",
       "@type": "MobileApplication",
-      "name": "সাপ ও বন্যপ্রাণী - রেসকিউ বিডি",
+      "name": "সাপ ও বন্যপ্রাণী - রেসকিউ বিডি (Snakes & Wildlife - Rescue BD)",
       "operatingSystem": "Android",
       "applicationCategory": "HealthApplication, MedicalApplication, ReferenceApplication",
-      "description": "বাংলাদেশের প্রথম সমন্বিত এআই সাপ শনাক্তকরণ, সাপে কাটার প্রাথমিক চিকিৎসা, নিকটস্থ অ্যান্টিভেনম হাসপাতাল ও প্রশিক্ষিত সাপ উদ্ধারকারী ডিরেক্টরি অ্যাপ।",
+      "softwareVersion": "3.0.1",
+      "description": "বাংলাদেশের প্রথম সমন্বিত এআই সাপ শনাক্তকরণ, সাপে কাটার জীবন রক্ষাকারী জরুরি প্রাথমিক চিকিৎসা, ৬৪ জেলার অ্যান্টিভেনম হাসপাতাল ডিরেক্টরি, রিয়েলটাইম বিস্তার মানচিত্র, এবং প্রশিক্ষিত উদ্ধারকারী (Rescuer) নেটওয়ার্ক।",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -47,6 +48,21 @@
       },
       "url": "https://snakeappbd.vercel.app/",
       "downloadUrl": "https://play.google.com/store/apps/details?id=bd.snake.app",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1250",
+        "bestRating": "5"
+      },
+      "featureList": [
+        "AI Snake Species Identifier powered by Gemini AI",
+        "495+ Verified Antivenom Hospital Directory with GPS Routing",
+        "64-District Wildlife Rescuer Contacts & SOS Alerts",
+        "Interactive Snake Distribution & District Habitat Maps",
+        "Educational Quiz & Snake Coin Reward Hub",
+        "National Snakebite Memorial Death Registry",
+        "Direct Admin Feedback & Bug Reporting System"
+      ],
       "author": {
         "@type": "Person",
         "name": "Arefin Nabil"
@@ -1538,10 +1554,15 @@
                 </div>
                 <!-- AI Chatbot & Quiz -->
                 <div class="feature-card" id="feat-6">
-                    <div class="feature-icon-wrapper">💬</div>
-                    <h3>এআই চ্যাটবট ও কুইজ</h3>
-                    <p>অ্যাপের ভেতর ২৪/৭ সক্রিয় এআই বটের সাথে চ্যাট করে সাপ ও বন্যপ্রাণী নিয়ে আপনার কৌতূহল মেটান এবং
-                        কুইজ খেলে সাপের সচেতনতা সংক্রান্ত জ্ঞান বাড়ান।</p>
+                    <div class="feature-icon-wrapper">🪙</div>
+                    <h3>স্নেক কয়েন ও রিওয়ার্ড হাব</h3>
+                    <p>কুইজ খেলা ও বন্যপ্রাণী সচেতনতামূলক কন্টেন্ট পড়ে স্নেক কয়েন আয় করুন, ব্যালেন্স স্ট্রিক ধরে রাখুন এবং রিওয়ার্ড পয়েন্টের মাধ্যমে লিডারবোর্ডে এগিয়ে থাকুন।</p>
+                </div>
+                <!-- Live Distribution Map -->
+                <div class="feature-card" id="feat-10">
+                    <div class="feature-icon-wrapper">🗺️</div>
+                    <h3>লাইভ বিস্তার ও জেলাভিত্তিক ম্যাপ</h3>
+                    <p>৬৪ জেলার সাপের বিস্তার, রেসকিউ হটস্পট এবং ভৌগোলিক উপস্থিতি সরাসরি ইন্টারেক্টিভ জুম মানচিত্রে রিয়েলটাইমে দেখার আধুনিক সুবিধা।</p>
                 </div>
                 <!-- Forest Directory -->
                 <div class="feature-card" id="feat-7">
@@ -1560,7 +1581,7 @@
                 <!-- Wildlife act -->
                 <div class="feature-card" id="feat-9">
                     <div class="feature-icon-wrapper">⚖️</div>
-                    <h3>বন্যপ্রাণী আইন ও থিমস</h3>
+                    <h3>বন্যপ্রাণী আইন ও সংরক্ষণ নীতি</h3>
                     <p>বন্যপ্রাণী ও সাপ নিধন দণ্ডনীয় অপরাধ সংক্রান্ত সরকারি গেজেট ও তফসিল পড়ার সুবিধা এবং চোখকে আরাম
                         দিতে অ্যাপে ডার্ক ও লাইট থিমের সহায়ক ইন্টারফেস।</p>
                 </div>
@@ -1738,8 +1759,9 @@
                     <ul class="footer-links">
                         <li><a href="#about">অ্যাপ পরিচিতি</a></li>
                         <li><a href="#features">মূল ফিচারসমূহ</a></li>
-                        <li><a href="features.html">সকল ৫৩টি ফিচার তালিকা ↗</a></li>
-                        <li><a href="screenshots.html">সব স্ক্রিনশট গ্যালারি ↗</a></li>
+                        <li><a href="features.html">সকল ফিচার তালিকা ↗</a></li>
+                        <li><a href="screenshots.html">স্ক্রিনশট গ্যালারি ↗</a></li>
+                        <li><a href="PRIVACY_POLICY.md" target="_blank">গোপনীয়তা নীতিমালা (Privacy Policy) ↗</a></li>
                         <li><a href="#faq">সচরাচর জিজ্ঞাসা (FAQ)</a></li>
                         <li><a href="https://snakeappbd.vercel.app/" target="_blank">অফিসিয়াল ওয়েবসাইট</a></li>
                         <li><a href="https://www.facebook.com/snake.app.bd/" target="_blank">ফেসবুক পেজ</a></li>

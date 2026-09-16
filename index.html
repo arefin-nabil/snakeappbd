@@ -56,7 +56,7 @@
       },
       "featureList": [
         "AI Snake Species Identifier powered by Gemini AI",
-        "495+ Verified Antivenom Hospital Directory with GPS Routing",
+        "530+ Verified Antivenom Hospital Directory with GPS Routing",
         "64-District Wildlife Rescuer Contacts & SOS Alerts",
         "Interactive Snake Distribution & District Habitat Maps",
         "Educational Quiz & Snake Coin Reward Hub",
@@ -1117,38 +1117,71 @@
             }
         }
 
+        .mobile-menu-cta {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             header {
-                padding: 14px 0;
+                padding: 12px 0;
             }
 
             .mobile-toggle {
                 display: flex;
             }
 
+            #nav-play-btn {
+                display: none !important;
+            }
+
             .nav-menu {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(7, 18, 9, 0.95);
+                height: calc(100vh - 70px);
+                background: rgba(7, 18, 9, 0.98);
                 backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
                 flex-direction: column;
-                padding: 60px 40px;
-                align-items: flex-start;
-                gap: 32px;
+                padding: 30px 24px 60px;
+                align-items: stretch;
+                gap: 12px;
                 transition: var(--transition);
                 border-top: 1px solid var(--glass-border);
+                overflow-y: auto;
+                border-radius: 0;
+                z-index: 1005;
             }
 
             .nav-menu.active {
                 left: 0;
             }
 
-            .btn-download-nav {
+            .nav-menu li {
                 width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                width: 100%;
+                font-size: 16px;
+                padding: 12px 18px;
                 text-align: center;
+                border-radius: 12px;
+            }
+
+            .mobile-menu-cta {
+                display: block;
+                margin-top: 14px;
+                width: 100%;
+            }
+
+            .mobile-menu-cta .btn-play-badge {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
             }
 
             .hero {
@@ -1343,13 +1376,25 @@
             </a>
 
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link active">হোম</a></li>
-                <li><a href="#about" class="nav-link">পরিচিতি</a></li>
-                <li><a href="#features" class="nav-link">ফিচারসমূহ</a></li>
-                <li><a href="features.html" class="nav-link highlight-link">সকল ৫৩টি ফিচার ↗</a></li>
-                <li><a href="#screenshots" class="nav-link">স্ক্রিনশট</a></li>
-                <li><a href="screenshots.html" class="nav-link highlight-link">গ্যালারি ↗</a></li>
-                <li><a href="#faq" class="nav-link">প্রশ্নোত্তর</a></li>
+                <li><a href="index.html#home" class="nav-link active">হোম</a></li>
+                <li><a href="index.html#about" class="nav-link">পরিচিতি</a></li>
+                <li><a href="features.html" class="nav-link">সকল ফিচার (৫৩)</a></li>
+                <li><a href="screenshots.html" class="nav-link">স্ক্রিনশট গ্যালারি</a></li>
+                <li><a href="index.html#faq" class="nav-link">প্রশ্নোত্তর</a></li>
+                <li class="mobile-menu-cta">
+                    <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge">
+                        <svg viewBox="0 0 512 512">
+                            <path fill="#00e5ff" d="M30.4 18.2C24.8 24.3 21.3 33.7 21.3 46v420c0 12.3 3.5 21.7 9.1 27.8l1.6 1.4 235.2-235.2v-5.6L32 16.8l-1.6 1.4z"/>
+                            <path fill="#00e676" d="M346.7 348.6l-79.5-79.5v-5.6l79.5-79.5 1.8 1 94.2 53.6c26.9 15.3 26.9 40.3 0 55.6l-94.2 53.4-1.8 1z"/>
+                            <path fill="#ffd600" d="M348.5 347.6L267.2 266.3 30.4 503.1c8.9 9.5 23.5 10.6 39.8 1.4l278.3-156.9"/>
+                            <path fill="#ff3d00" d="M348.5 164.4L70.2 7.5C53.9-1.7 39.3-.6 30.4 8.9l236.8 236.8 81.3-81.3z"/>
+                        </svg>
+                        <div class="btn-play-text">
+                            <small>GET IT ON</small>
+                            <span>Google Play</span>
+                        </div>
+                    </a>
+                </li>
             </ul>
 
             <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge" id="nav-play-btn">

@@ -101,16 +101,35 @@
             scroll-behavior: smooth;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             font-family: var(--font-family);
             background: var(--bg-dark);
             background-image: var(--bg-dark-gradient);
             color: var(--text-light);
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
             line-height: 1.6;
         }
 
-        /* Subtle Noise Texture & Glowing Background Orbs */
+        /* Subtle Noise Texture & Glowing Background Orbs Container */
+        .glow-orbs-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
         .glow-orb {
             position: absolute;
             width: 400px;
@@ -1148,6 +1167,14 @@
             }
         }
 
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
         .mobile-menu-cta {
             display: none;
         }
@@ -1171,6 +1198,7 @@
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 70px);
+                height: calc(100dvh - 70px);
                 background: rgba(7, 18, 9, 0.98);
                 backdrop-filter: blur(25px);
                 -webkit-backdrop-filter: blur(25px);
@@ -1227,6 +1255,18 @@
                 font-size: 15.5px;
             }
 
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+
+            .about-grid ul {
+                text-align: left;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
             .stats-wrapper {
                 grid-template-columns: 1fr;
                 gap: 24px;
@@ -1239,6 +1279,11 @@
 
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-box {
+                padding: 45px 24px;
+                border-radius: 24px;
             }
 
             .footer-grid {
@@ -1254,11 +1299,20 @@
 
         /* Small screens and mobile viewport adjustments */
         @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
             .phone-container {
                 width: 210px;
                 height: 430px;
                 border-width: 8px;
                 border-radius: 30px;
+            }
+
+            .phone-mockup-glow {
+                width: 220px;
+                height: 380px;
             }
 
             .phone-notch {
@@ -1304,8 +1358,8 @@
             }
 
             .cta-box {
-                padding: 40px 16px;
-                border-radius: 24px;
+                padding: 35px 14px;
+                border-radius: 20px;
             }
 
             .cta-content h2 {
@@ -1324,6 +1378,13 @@
                 padding: 10px 16px;
             }
 
+            .section-action-btn {
+                padding: 12px 18px;
+                font-size: 13.5px;
+                width: 100%;
+                justify-content: center;
+            }
+
             .logo-section h1 {
                 font-size: 17px;
             }
@@ -1331,7 +1392,8 @@
             .nav-menu {
                 top: 70px;
                 height: calc(100vh - 70px);
-                padding: 45px 20px;
+                height: calc(100dvh - 70px);
+                padding: 30px 16px;
             }
 
             .stats-wrapper {
@@ -1394,9 +1456,11 @@
 <body>
 
     <!-- Glow Orbs in background -->
-    <div class="glow-orb" id="orb-1"></div>
-    <div class="glow-orb" id="orb-2"></div>
-    <div class="glow-orb" id="orb-3"></div>
+    <div class="glow-orbs-container">
+        <div class="glow-orb" id="orb-1"></div>
+        <div class="glow-orb" id="orb-2"></div>
+        <div class="glow-orb" id="orb-3"></div>
+    </div>
 
     <!-- Navigation Header -->
     <header id="header">
@@ -1550,8 +1614,7 @@
                     সেবার মাধ্যমে পরিবেশ সংরক্ষণ নিশ্চিত করতে তৈরি করা হয়েছে।</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 40px;"
-                class="hero-grid">
+            <div class="about-grid">
                 <div>
                     <img src="logo.webp" alt="Rescue BD Awareness Concept"
                         style="width: 100%; max-width: 380px; border-radius: 32px; border: 1px solid var(--glass-border); box-shadow: 0 20px 40px rgba(0,0,0,0.3); margin: 0 auto; display: block;">

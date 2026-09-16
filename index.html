@@ -728,6 +728,37 @@
             line-height: 1.6;
         }
 
+        .section-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.85), rgba(76, 175, 80, 0.95));
+            color: #fff !important;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 15.5px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.35);
+            transition: var(--transition);
+        }
+
+        .section-action-btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.95), rgba(129, 199, 132, 1));
+            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.5);
+            color: #fff !important;
+        }
+
+        .section-action-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .section-action-btn:hover svg {
+            transform: translateX(4px);
+        }
+
         /* Screenshots / App Showcase Section */
         .showcase {
             padding: 80px 0;
@@ -1376,11 +1407,11 @@
             </a>
 
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html#home" class="nav-link active">হোম</a></li>
-                <li><a href="index.html#about" class="nav-link">পরিচিতি</a></li>
+                <li><a href="#home" class="nav-link active">হোম</a></li>
+                <li><a href="#about" class="nav-link">পরিচিতি</a></li>
                 <li><a href="features.html" class="nav-link">সকল ফিচার (৫৩)</a></li>
                 <li><a href="screenshots.html" class="nav-link">স্ক্রিনশট গ্যালারি</a></li>
-                <li><a href="index.html#faq" class="nav-link">প্রশ্নোত্তর</a></li>
+                <li><a href="#faq" class="nav-link">প্রশ্নোত্তর</a></li>
                 <li class="mobile-menu-cta">
                     <a href="https://play.google.com/store/apps/details?id=bd.snake.app" target="_blank" rel="noopener" class="btn-play-badge">
                         <svg viewBox="0 0 512 512">
@@ -1631,6 +1662,13 @@
                         দিতে অ্যাপে ডার্ক ও লাইট থিমের সহায়ক ইন্টারফেস।</p>
                 </div>
             </div>
+
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="features.html" class="section-action-btn">
+                    <span>অ্যাপের সকল ৫৩টি ফিচার বিস্তারিত দেখুন</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1683,6 +1721,13 @@
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 36px;">
+                    <a href="screenshots.html" class="section-action-btn">
+                        <span>সকল ১৫টি স্ক্রিনশট গ্যালারি দেখুন</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
             </div>
         </div>

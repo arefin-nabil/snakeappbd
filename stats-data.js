@@ -20,26 +20,34 @@ window.RESCUE_BD_STATS = {
         },
         // বার্ষিক সর্পদংশনে আনুমানিক প্রাণহানি (মৃত্যু)
         annualDeaths: {
-            value: 7511,
+            value: 7500,
             prefix: "আনুমানিক ",
             suffix: "+",
             label: "সর্পদংশনে বার্ষিক প্রাণহানি",
             desc: "অচেতনতা, ওঝা/কবিরাজের কাছে যাওয়া ও সঠিক সময়ে হাসপাতালে না পৌঁছানোর কারণে এই মূল্যবান প্রাণগুলো ঝরে যায়"
         },
+        // এ বছর অ্যাপের মৃত্যু নিবন্ধনে (Memorial Death Registry) নথিবদ্ধ মৃত্যু
+        registeredDeathsThisYear: {
+            value: 210, // <-- অ্যাপের মেমোরিয়াল ডেথ রেজিস্ট্রিতে এ বছর নথিবদ্ধ যাচাইকৃত মৃত্যুর সংখ্যা
+            prefix: "",
+            suffix: " জন",
+            label: "এ বছর অ্যাপে নথিবদ্ধ মৃত্যু",
+            desc: "আমাদের জাতীয় সর্পদংশন মেমোরিয়াল রেজিস্ট্রিতে সংরক্ষিত ও যাচাইকৃত শোকাবহ তথ্য"
+        },
         // ওঝা বা ভুল চিকিৎসার কারণে দেরিতে হাসপাতালে যাওয়ার হার
         delayedTreatmentRate: {
-            value: 80,
+            value: 70,
             prefix: "প্রায় ",
-            suffix: "%+",
+            suffix: "%",
             label: "দেরি ও অপচিকিৎসাজনিত ঝুঁকি",
             desc: "মৃত্যুর প্রধান কারণ যথাসময়ে অ্যান্টিভেনম না নিয়ে ওঝার কাছে সময় নষ্ট করা"
         },
         // দেশে নির্বিষ বা কম বিষাক্ত সাপের অনুপাত
         nonVenomousRate: {
-            value: 75,
+            value: 86,
             prefix: "প্রায় ",
             suffix: "%",
-            label: "সাপ নির্বিষ বা কম বিষাক্ত",
+            label: "সাপ নির্বিষ বা মৃদুবিষধর",
             desc: "চিনতে না পেরে অহেতুক ভীতি থেকে বহু উপকারী ও নির্বিষ সাপ মেরে ফেলা হয়"
         }
     },
@@ -48,7 +56,7 @@ window.RESCUE_BD_STATS = {
     impact: {
         // অ্যাপের মোট ডাউনলোড ও ইউজার রিচ
         downloads: {
-            value: 12500,
+            value: 350,
             prefix: "",
             suffix: "+",
             label: "মোট ডাউনলোড ও ব্যবহারকারী",
@@ -56,7 +64,7 @@ window.RESCUE_BD_STATS = {
         },
         // অ্যাপের মাধ্যমে জরুরি সেবা বা দিকনির্দেশনা পেয়ে উপকৃত মানুষ
         beneficiaries: {
-            value: 1850,
+            value: 260,
             prefix: "",
             suffix: "+",
             label: "জরুরি সেবা ও পরামর্শ প্রাপ্ত",
@@ -64,7 +72,7 @@ window.RESCUE_BD_STATS = {
         },
         // সফল স্নেক রেসকিউ ও অবমুক্তকরণ (উদ্ধার সম্পন্ন)
         successfulRescues: {
-            value: 480,
+            value: 121,
             prefix: "",
             suffix: "+",
             label: "সফল উদ্ধার (Rescues)",
@@ -80,7 +88,7 @@ window.RESCUE_BD_STATS = {
         },
         // সক্রিয় ভেরিফাইড রেসকিউয়ার সংখ্যা
         activeRescuers: {
-            value: 165,
+            value: 170,
             prefix: "",
             suffix: "+",
             label: "সক্রিয় উদ্ধারকারী নেটওয়ার্ক",
@@ -100,7 +108,7 @@ window.RESCUE_BD_STATS = {
     social: {
         // ফেসবুক পেজের ফলোয়ার সংখ্যা
         facebookFollowers: {
-            value: 45000,
+            value: 350,
             prefix: "",
             suffix: "+",
             label: "ফেসবুক ফলোয়ার",
@@ -109,7 +117,7 @@ window.RESCUE_BD_STATS = {
         },
         // ইউটিউব চ্যানেলের সাবস্ক্রাইবার সংখ্যা
         youtubeSubscribers: {
-            value: 18500,
+            value: 600,
             prefix: "",
             suffix: "+",
             label: "ইউটিউব সাবস্ক্রাইবার",
@@ -118,7 +126,7 @@ window.RESCUE_BD_STATS = {
         },
         // অনলাইন কমিউনিটি ও গ্রুপ মেম্বার
         communityMembers: {
-            value: 32000,
+            value: 350,
             prefix: "",
             suffix: "+",
             label: "কমিউনিটি সদস্য",
